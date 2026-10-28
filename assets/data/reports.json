@@ -1,0 +1,75 @@
+{
+  "templates": [
+    {
+      "id": "RPT-001",
+      "title": "Quarterly Gadget Turnover & Margin Audit",
+      "category": "Financial",
+      "format": "CSV, PDF",
+      "description": "Comprehensive itemized ledger of cost of goods, gross retail margins, stock velocity, and shelf-aging per SKU.",
+      "lastGenerated": "2026-10-18",
+      "size": "2.4 MB"
+    },
+    {
+      "id": "RPT-002",
+      "title": "IMEI & Warranty Claims Expiry Forecast",
+      "category": "Operations",
+      "format": "CSV, PDF",
+      "description": "Device lifecycle compliance report tracking serial numbers reaching RMA deadlines and manufacturer warranty coverage.",
+      "lastGenerated": "2026-10-15",
+      "size": "1.8 MB"
+    },
+    {
+      "id": "RPT-003",
+      "title": "Warehouse Velocity & Reorder Recommendations",
+      "category": "Inventory",
+      "format": "CSV, Excel",
+      "description": "Predictive stock replenishment schedule based on 30-day run rates and regional distribution lead times.",
+      "lastGenerated": "2026-10-20",
+      "size": "3.1 MB"
+    },
+    {
+      "id": "RPT-004",
+      "title": "High-Value Category Shrinkage & Discrepancies",
+      "category": "Security",
+      "format": "PDF",
+      "description": "Security audit comparing barcode scans against RFID portal logs for phones and luxury wearables.",
+      "lastGenerated": "2026-10-12",
+      "size": "950 KB"
+    },
+    {
+      "id": "RPT-005",
+      "title": "Return Rate & Defect Telemetry by SKU",
+      "category": "Quality",
+      "format": "CSV, PDF",
+      "description": "Hardware failure diagnostic report categorized by battery degradation, display anomalies, and DOA statuses.",
+      "lastGenerated": "2026-10-19",
+      "size": "1.5 MB"
+    }
+  ],
+  "scheduled": [
+    {
+      "id": "SCH-101",
+      "name": "Weekly Stock Snapshot (All Warehouses)",
+      "frequency": "Every Monday, 06:00 UTC",
+      "recipient": "inventory-leads@voltaris.demo",
+      "format": "CSV",
+      "status": "Active"
+    },
+    {
+      "id": "SCH-102",
+      "name": "Daily Critical Low-Stock Flash Report",
+      "frequency": "Daily, 08:30 UTC",
+      "recipient": "purchasing@voltaris.demo",
+      "format": "Excel",
+      "status": "Active"
+    },
+    {
+      "id": "SCH-103",
+      "name": "Monthly Executive Profitability & Forecast Brief",
+      "frequency": "1st of Month, 00:00 UTC",
+      "recipient": "executives@voltaris.demo",
+      "format": "PDF",
+      "status": "Active"
+    }
+  ]
+}

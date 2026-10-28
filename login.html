@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — VOLTARIS Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <div class="auth-page-wrapper">
+    
+    <!-- Centered Glass Form Box -->
+    <div class="auth-form-card">
+      
+      <!-- Top Center Brand Logo & Name -->
+      <div class="auth-brand-header">
+        <a href="index.html" class="auth-brand-logo" aria-label="Voltaris Home">
+          <img src="images/brand/logo.svg" alt="VOLTARIS" class="nav-logo-img" width="190" height="44">
+        </a>
+        <h1 style="font-size:var(--fs-xl); margin-bottom:0.5rem;">Studio Sign In</h1>
+        <p style="font-size:var(--fs-sm); color:var(--muted);">Select a demo role below or input credentials.</p>
+      </div>
+
+      <div id="loginErrorMsg" style="display:none; background:rgba(255,61,139,0.15); border:1px solid var(--flare); color:var(--flare); padding:0.75rem 1rem; border-radius:var(--radius-sm); font-size:var(--fs-xs); margin-bottom:1.25rem;">
+        Invalid credentials.
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Work Email</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="admin@voltaris.demo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password</label>
+          <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <div class="auth-meta-row">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" checked> Remember this station
+          </label>
+          <a href="javascript:void(0)" onclick="alert('Demo notice: Use one of the 4 quick demo buttons below to auto-fill working credentials.');" class="auth-link-signal">Forgot key?</a>
+        </div>
+
+        <button type="submit" class="btn btn-volt btn-lg" style="width:100%;">Authenticate &amp; Launch</button>
+      </form>
+
+      <!-- Quick Demo Autofill Buttons (Prompt Requirement) -->
+      <div class="quick-roles-band">
+        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--muted); text-transform:uppercase;">Quick Demo Accounts (1-Click Fill)</div>
+        <div class="quick-role-buttons">
+          <button type="button" class="quick-role-btn" data-email="admin@voltaris.demo" data-pass="Admin@123">Admin</button>
+          <button type="button" class="quick-role-btn" data-email="manager@voltaris.demo" data-pass="Manager@123">Manager</button>
+          <button type="button" class="quick-role-btn" data-email="analyst@voltaris.demo" data-pass="Analyst@123">Analyst</button>
+          <button type="button" class="quick-role-btn" data-email="viewer@voltaris.demo" data-pass="Viewer@123">Viewer</button>
+        </div>
+      </div>
+
+      <div class="auth-switch-prompt">
+        Need an account? <a href="signup.html" class="auth-link-volt">Create Studio Account</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import { login, redirectIfAuthenticated } from './assets/js/auth.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      redirectIfAuthenticated();
+
+      const form = document.getElementById('loginForm');
+      const emailInput = document.getElementById('loginEmail');
+      const passInput = document.getElementById('loginPassword');
+      const errorMsg = document.getElementById('loginErrorMsg');
+
+      // Quick demo autofill buttons
+      document.querySelectorAll('.quick-role-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          emailInput.value = btn.dataset.email;
+          passInput.value = btn.dataset.pass;
+          errorMsg.style.display = 'none';
+        });
+      });
+
+      // Handle Submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const res = login(emailInput.value, passInput.value);
+        if (res.success) {
+          window.location.href = 'dashboard.html';
+        } else {
+          errorMsg.textContent = res.message;
+          errorMsg.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

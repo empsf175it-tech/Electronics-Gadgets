@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLTARIS — Electronics Gadgets Management & Analytics Studio</title>
+  <meta name="description" content="VOLTARIS is the premier management, warranty tracking, and predictive inventory analytics platform built specifically for high-velocity electronics retailers, repair studios, and gadget distributors.">
+  <link rel="canonical" href="https://voltaris.studio/index.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VOLTARIS — Every gadget. Every number. Under control.">
+  <meta property="og:description" content="Manage inventory, track serial/IMEI device lifecycles, forecast stock run rates, and export itemized financial audits.">
+  <meta property="og:image" content="images/hero/hero-gadgets-hologram.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <!-- Local Preloads -->
+  <link rel="preload" href="assets/fonts/SpaceGrotesk-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/JetBrainsMono-Bold.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- Local Stylesheets -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VOLTARIS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "149.00",
+      "priceCurrency": "USD"
+    },
+    "description": "Electronics Gadgets Management & Analytics Studio for phones, laptops, wearables, audio, and smart devices."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR (STRICT: ONLY 4 LINKS: Home, Platform, Insights, Contact) -->
+  <header class="site-header">
+    <nav class="voltaris-nav" aria-label="Main Navigation">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand" aria-label="Voltaris Home">
+          <img src="images/brand/logo.svg" alt="VOLTARIS Logo" class="nav-logo-img" width="180" height="42">
+        </a>
+
+        <!-- STRICT: 4 LINKS ONLY -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="platform.html" class="nav-link">Platform</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Right Side Nav Actions -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="dashboard.html" class="btn btn-volt btn-sm">Dashboard</a>
+          <button class="mobile-nav-toggle" aria-label="Open Mobile Menu" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-modal="true">
+    <img src="images/brand/logo.svg" alt="VOLTARIS" width="160" height="38" style="margin-bottom: 1rem;">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="platform.html" class="nav-link">Platform</a></li>
+      <li><a href="insights.html" class="nav-link">Insights</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+      <a href="login.html" class="btn btn-ghost">Sign In</a>
+      <a href="dashboard.html" class="btn btn-volt">Dashboard</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-bg"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="section-tag">NEXT-GEN HARDWARE TELEMETRY</div>
+          <h1 class="hero-title">
+            Every gadget. Every number. <br>
+            <span class="gradient-text">Under control.</span>
+          </h1>
+          <p class="hero-subtitle">
+            The mission-control studio for electronics retailers, repair labs, and distributors. Track 60,000+ SKUs, automate IMEI warranty verification, optimize profit margins, and forecast stock runout before it happens.
+          </p>
+          <div class="hero-cta-group">
+            <a href="dashboard.html" class="btn btn-volt btn-lg">Launch Live Studio</a>
+            <a href="platform.html" class="btn btn-ghost btn-lg">Explore Architecture</a>
+          </div>
+          <div class="hero-trust-indicators">
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero-latency RFID & Barcode Sync</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>SOC2 & IMEI Regulatory Compliant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Floating Dashboard Mock -->
+        <div class="hero-mock-wrapper">
+          <div class="mock-dashboard-shell">
+            <div class="mock-topbar">
+              <div class="mock-window-dots">
+                <span class="mock-dot red"></span>
+                <span class="mock-dot yellow"></span>
+                <span class="mock-dot green"></span>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);">VOLTARIS NODE // BUS-01</div>
+              <div class="mock-live-pill">LIVE 12.8ms</div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-kpi-row">
+                <div class="mock-kpi-chip">
+                  <div class="mock-kpi-title">Active Devices</div>
+                  <div class="mock-kpi-value" data-counter="48290">48,290</div>
+                  <div class="mock-kpi-delta">+14.2% ↑</div>
+                </div>
+                <div class="mock-kpi-chip">
+                  <div class="mock-kpi-title">Gross Margin</div>
+                  <div class="mock-kpi-value">46.8%</div>
+                  <div class="mock-kpi-delta">+3.1% ↑</div>
+                </div>
+                <div class="mock-kpi-chip">
+                  <div class="mock-kpi-title">Depreciation</div>
+                  <div class="mock-kpi-value" style="color:var(--volt);">$0.18/d</div>
+                  <div class="mock-kpi-delta">-12% optimal</div>
+                </div>
+              </div>
+              <div class="mock-chart-panel">
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.75rem;">
+                  <span style="color:var(--text-pure); font-weight:600;">Hardware Telemetry Velocity</span>
+                  <span style="font-family:var(--font-mono); color:var(--signal);">Real-time Bus</span>
+                </div>
+                <!-- SVG Canvas Graphic for Mock -->
+                <svg class="mock-chart-svg" viewBox="0 0 480 90" fill="none">
+                  <path d="M0,75 C60,65 100,80 160,45 C220,10 260,50 320,30 C380,10 420,20 480,5 L480,90 L0,90 Z" fill="url(#heroMockGrad)" opacity="0.35"/>
+                  <path d="M0,75 C60,65 100,80 160,45 C220,10 260,50 320,30 C380,10 420,20 480,5" stroke="#C6FF3D" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="320" cy="30" r="4" fill="#22E5FF" filter="drop-shadow(0 0 8px #22E5FF)"/>
+                  <circle cx="480" cy="5" r="4" fill="#C6FF3D" filter="drop-shadow(0 0 8px #C6FF3D)"/>
+                  <defs>
+                    <linearGradient id="heroMockGrad" x1="0" y1="0" x2="0" y2="90">
+                      <stop offset="0%" stop-color="#C6FF3D"/>
+                      <stop offset="100%" stop-color="#22E5FF" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">
+                <span>WH-NORTH: 100% ONLINE</span>
+                <span style="color:var(--volt);">RMA RECOVERY: 98.2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TRUSTED-BY SHOWCASE -->
+    <div class="marquee-container" aria-label="Partner Electronics Distributors">
+      <div class="marquee-track">
+        <div class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg> QUANTUM CIRCUITS GLOBAL</div>
+        <div class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="4"/><circle cx="12" cy="12" r="4"/></svg> NOVATECH HARDWARE CORP</div>
+        <div class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg> APEX GADGET DISTRIBUTORS</div>
+        <div class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> HYPERDRIVE LOGISTICS</div>
+        <div class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg> LUMINA PULSE NETWORKS</div>
+        <div class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> TERRASILICON SYSTEMS</div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: ANIMATED STATS BAND -->
+    <section class="stats-band" id="stats">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-counter="2400000" data-suffix="+">2,400,000+</div>
+          <div class="stat-label">Gadgets Tracked Globally</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter="1840" data-suffix="+">1,840+</div>
+          <div class="stat-label">Retail & Repair Hubs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter="99.4" data-suffix="%">99.4%</div>
+          <div class="stat-label">Stock Forecast Precision</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter="48200" data-suffix="h">48,200h</div>
+          <div class="stat-label">Audit Hours Saved Annually</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CORE CAPABILITIES (6 TILT CARDS WITH ROTATING ELECTRONICS ANIMATIONS & STRICT CENTER ALIGNMENT) -->
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">ENGINEERED FOR ELECTRONICS</div>
+          <h2>Precision Operations for Modern Hardware</h2>
+          <p>Spreadsheets drop serial numbers; legacy ERPs ignore battery cycles. VOLTARIS gives you purpose-built electronics operational mastery.</p>
+        </div>
+
+        <div class="capabilities-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.75rem;">
+          
+          <!-- Card 1: Circuit-Border animation -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-circuit-border">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 7h-9M14 17H5M17 12H3"/><circle cx="17" cy="7" r="3"/><circle cx="7" cy="17" r="3"/><circle cx="21" cy="12" r="2"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Omnichannel SKU Telemetry</h3>
+                <p class="tilt-card-desc">Synchronize stocks across warehouses, pop-up stores, and trade-in counters with sub-millisecond barcode reconciliation.</p>
+                <div class="tilt-card-metric">&lt; 15ms Sync Latency</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Signal-Ring animation -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-signal-ring">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 15 11"/></svg>
+                </div>
+                <h3 class="tilt-card-title">IMEI & Serial Lifecycle</h3>
+                <p class="tilt-card-desc">Audit exact device lineage from wholesale receiving to customer handover, warranty claim, and factory RMA dispatch.</p>
+                <div class="tilt-card-metric">100% Traceability</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Battery-Bar animation -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-battery-bar">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="11" x2="23" y2="13"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Device Health Diagnostics</h3>
+                <p class="tilt-card-desc">Monitor shelf battery preservation thresholds and firmware degradation across unboxed and refurbished inventories.</p>
+                <div class="tilt-card-metric">Automated Alerts</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Laser-Scan animation -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-laser-scan">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3z"/><circle cx="18" cy="18" r="3"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Predictive Stock Depletion</h3>
+                <p class="tilt-card-desc">Machine-learning forecasts analyze historical sell-through velocity to schedule purchase orders before stockout events occur.</p>
+                <div class="tilt-card-metric">99.4% Accuracy</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Blinking-LED animation -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-blinking-led">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Dynamic Price Guardrails</h3>
+                <p class="tilt-card-desc">Auto-calculate live margins against manufacturer price drops, wholesale rebates, and local currency fluctuations.</p>
+                <div class="tilt-card-metric">+4.2% Profit Margin</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Equalizer-Bars animation -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-equalizer-bars">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Instant Compliance Audits</h3>
+                <p class="tilt-card-desc">Generate one-click CSV ledgers, Excel tax reports, and cryptographically verified PDF audit packages for financial reviewers.</p>
+                <div class="equalizer-wrapper">
+                  <div class="equalizer-bar"></div>
+                  <div class="equalizer-bar"></div>
+                  <div class="equalizer-bar"></div>
+                  <div class="equalizer-bar"></div>
+                  <div class="equalizer-bar"></div>
+                </div>
+                <div class="tilt-card-metric" style="margin-top:0.5rem;">One-Click Export</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: HOW IT WORKS (4-STEP TIMELINE WITH CIRCUIT CONNECTOR) -->
+    <section id="how-it-works" style="background: rgba(11, 16, 48, 0.35);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">DEPLOYMENT WORKFLOW</div>
+          <h2>From Intake to Telemetry in 4 Steps</h2>
+          <p>Seamlessly integrate VOLTARIS into your existing hardware store, repair workbench, or distribution channel.</p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-connector"></div>
+          <div class="timeline-grid">
+            
+            <div class="timeline-step-card">
+              <div class="timeline-node">01</div>
+              <h3 style="margin-bottom:0.5rem; font-size:var(--fs-base);">Intake & Barcode Scan</h3>
+              <p style="font-size:var(--fs-sm);">Scan master cartons or individual device barcodes. VOLTARIS parses IMEI, MAC address, and warranty terms automatically.</p>
+            </div>
+
+            <div class="timeline-step-card">
+              <div class="timeline-node">02</div>
+              <h3 style="margin-bottom:0.5rem; font-size:var(--fs-base);">Warehouse Allocation</h3>
+              <p style="font-size:var(--fs-sm);">Direct incoming items to regional bins, store display cases, or technician repair queues based on real-time order demand.</p>
+            </div>
+
+            <div class="timeline-step-card">
+              <div class="timeline-node">03</div>
+              <h3 style="margin-bottom:0.5rem; font-size:var(--fs-base);">Lifecycle Tracking</h3>
+              <p style="font-size:var(--fs-sm);">Track device state through shelf aging, sale, customer warranty claims, RMA refurbishing, or final end-of-life recycling.</p>
+            </div>
+
+            <div class="timeline-step-card">
+              <div class="timeline-node">04</div>
+              <h3 style="margin-bottom:0.5rem; font-size:var(--fs-base);">Predictive Analytics</h3>
+              <p style="font-size:var(--fs-sm);">Generate automated replenishment orders and profit yield audits directly into your supplier accounting channels.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PRODUCT CATEGORY EXPLORER (TABS WITH LOCAL WEBP IMAGES + KPIS) -->
+    <section id="categories">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">SPECIALIZED HARDWARE CATEGORIES</div>
+          <h2>Engineered for Every Gadget Architecture</h2>
+          <p>Different electronics demand different lifecycle parameters. Switch tabs to explore dedicated controls for each product vertical.</p>
+        </div>
+
+        <div class="category-tabs-nav">
+          <button type="button" class="cat-tab-btn active" data-category="phones">Phones & Foldables</button>
+          <button type="button" class="cat-tab-btn" data-category="laptops">Laptops & Workstations</button>
+          <button type="button" class="cat-tab-btn" data-category="wearables">Wearables & Smart Rings</button>
+          <button type="button" class="cat-tab-btn" data-category="audio">Spatial Audio & ANC</button>
+          <button type="button" class="cat-tab-btn" data-category="smarthome">Smart Home & IoT</button>
+          <button type="button" class="cat-tab-btn" data-category="accessories">Power & GaN Accessories</button>
+        </div>
+
+        <!-- Tab 1: Phones -->
+        <div class="category-tab-pane active" data-category-pane="phones">
+          <div class="cat-img-box">
+            <img src="images/products/cat-phones.webp" alt="Next-generation foldable smartphones on circuit board with neon rim lighting" width="800" height="600" loading="lazy">
+          </div>
+          <div class="cat-info-box">
+            <div class="section-tag">CELLULAR TELEMETRY</div>
+            <h3>Smartphones, Foldables & Dual-Screen Devices</h3>
+            <p>Track dual-SIM IMEIs, carrier lock statuses, display hinge cycle fatigue logs, and trade-in grade inspections with precision serial reconciliation.</p>
+            <div class="cat-kpis-grid">
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AVG MARGIN</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">34.8%</div>
+              </div>
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">RETURN RATE</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">&lt; 1.4%</div>
+              </div>
+            </div>
+            <a href="platform.html" class="btn btn-signal">View Phones Module</a>
+          </div>
+        </div>
+
+        <!-- Tab 2: Laptops -->
+        <div class="category-tab-pane" data-category-pane="laptops">
+          <div class="cat-img-box">
+            <img src="images/products/cat-laptops.webp" alt="Titanium slim workstation laptop with illuminated keyboard and holographic code" width="800" height="600" loading="lazy">
+          </div>
+          <div class="cat-info-box">
+            <div class="section-tag">COMPUTE FLEET</div>
+            <h3>Workstations, Ultrabooks & Gaming Laptops</h3>
+            <p>Manage CPU/GPU specification variations, SSD health wear leveling, OEM extended warranties, and enterprise bulk deployment tagging.</p>
+            <div class="cat-kpis-grid">
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AVG MARGIN</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">32.6%</div>
+              </div>
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">TURNOVER VELOCITY</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">21 Days</div>
+              </div>
+            </div>
+            <a href="platform.html" class="btn btn-signal">View Laptops Module</a>
+          </div>
+        </div>
+
+        <!-- Tab 3: Wearables -->
+        <div class="category-tab-pane" data-category-pane="wearables">
+          <div class="cat-img-box">
+            <img src="images/products/cat-wearables.webp" alt="Titanium smartwatch with biometric holographic optical sensor and smart ring" width="800" height="600" loading="lazy">
+          </div>
+          <div class="cat-info-box">
+            <div class="section-tag">BIOMETRIC HARDWARE</div>
+            <h3>Smartwatches, Sports Trackers & Rings</h3>
+            <p>Monitor optical sensor calibration batches, IP68 water resistance seals, skin-contact hygiene certifications, and micro-battery shelf maintenance.</p>
+            <div class="cat-kpis-grid">
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AVG MARGIN</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">44.2%</div>
+              </div>
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">UNITS ACTIVE</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">82,400+</div>
+              </div>
+            </div>
+            <a href="platform.html" class="btn btn-signal">View Wearables Module</a>
+          </div>
+        </div>
+
+        <!-- Tab 4: Audio -->
+        <div class="category-tab-pane" data-category-pane="audio">
+          <div class="cat-img-box">
+            <img src="images/products/cat-audio.webp" alt="High-fidelity noise-cancelling headphones and wireless earbuds with soundwave rings" width="800" height="600" loading="lazy">
+          </div>
+          <div class="cat-info-box">
+            <div class="section-tag">ACOUSTIC ENGINEERING</div>
+            <h3>ANC Headphones, Studio Pods & Soundbars</h3>
+            <p>Track driver batch matching, Bluetooth BLE pairing serials, ear-cushion refurbishment inventory, and high-margin seasonal bundle sales.</p>
+            <div class="cat-kpis-grid">
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AVG MARGIN</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">48.5%</div>
+              </div>
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">STOCK VELOCITY</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">410/mo</div>
+              </div>
+            </div>
+            <a href="platform.html" class="btn btn-signal">View Audio Module</a>
+          </div>
+        </div>
+
+        <!-- Tab 5: Smart Home -->
+        <div class="category-tab-pane" data-category-pane="smarthome">
+          <div class="cat-img-box">
+            <img src="images/products/cat-smarthome.webp" alt="Smart home interactive glass touchscreen hub console and security telemetry" width="800" height="600" loading="lazy">
+          </div>
+          <div class="cat-info-box">
+            <div class="section-tag">IOT ECOSYSTEMS</div>
+            <h3>Control Hubs, AI Cameras & Environmental Nodes</h3>
+            <p>Manage Matter protocol firmware variants, Wi-Fi 6E chipset lots, security camera MAC pairings, and home installer distribution channels.</p>
+            <div class="cat-kpis-grid">
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AVG MARGIN</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">45.8%</div>
+              </div>
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">HUB COMPATIBILITY</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">100% Matter</div>
+              </div>
+            </div>
+            <a href="platform.html" class="btn btn-signal">View Smart Home Module</a>
+          </div>
+        </div>
+
+        <!-- Tab 6: Accessories -->
+        <div class="category-tab-pane" data-category-pane="accessories">
+          <div class="cat-img-box">
+            <img src="images/products/cat-accessories.webp" alt="High-power GaN transparent magnetic charger and Thunderbolt docking station" width="800" height="600" loading="lazy">
+          </div>
+          <div class="cat-info-box">
+            <div class="section-tag">POWER INFRASTRUCTURE</div>
+            <h3>GaN Fast Chargers, Docks & Braided Cables</h3>
+            <p>High-volume accessory replenishment algorithms, margin optimization on point-of-sale impulse purchases, and bulk packaging barcodes.</p>
+            <div class="cat-kpis-grid">
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AVG MARGIN</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">58.4%</div>
+              </div>
+              <div class="cat-kpi-card">
+                <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">TURNOVER TIME</div>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">9.5 Days</div>
+              </div>
+            </div>
+            <a href="platform.html" class="btn btn-signal">View Accessories Module</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: LIVE MINI-DASHBOARD PREVIEW -->
+    <section id="preview" style="background: rgba(11, 16, 48, 0.45);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">LIVE TELEMETRY DEMO</div>
+          <h2>Interactive Studio Engine at Work</h2>
+          <p>Real Chart.js rendering local hardware data. Toggle between metrics to see instantaneous recalculation without page refreshes.</p>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border-line-hover); border-radius:var(--radius-xl); padding:clamp(1.5rem, 4vw, 2.5rem); box-shadow:var(--shadow-elevated);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h3 style="font-size:var(--fs-lg); margin-bottom:0.25rem;">Global Warehouse Throughput</h3>
+              <p style="font-size:var(--fs-sm); font-family:var(--font-mono); color:var(--signal);">DEVICE DISPATCH VELOCITY // 24-HOUR MONITOR</p>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <span class="status-chip in-stock">34,180 UNITS LIVE</span>
+              <span class="status-chip in-stock">ALL BUSES NOMINAL</span>
+            </div>
+          </div>
+          
+          <div style="position:relative; width:100%; height:320px;">
+            <canvas id="homeMiniChart"></canvas>
+          </div>
+          
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border-line);">
+            <div style="text-align:center;">
+              <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">PEAK THROUGHPUT</div>
+              <div style="font-size:1.25rem; font-weight:700; color:var(--text-pure); font-family:var(--font-mono);">5,210 units/hr</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">RMA CLEARANCE RATE</div>
+              <div style="font-size:1.25rem; font-weight:700; color:var(--volt); font-family:var(--font-mono);">99.1%</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">BARCODE READ LATENCY</div>
+              <div style="font-size:1.25rem; font-weight:700; color:var(--signal); font-family:var(--font-mono);">11.4 ms</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:0.75rem; color:var(--muted); font-family:var(--font-mono);">AUDIT LEDGER</div>
+              <div style="font-size:1.25rem; font-weight:700; color:var(--plasma); font-family:var(--font-mono);">REAL-TIME IMMUTABLE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: ROLE-BASED ACCESS TEASER -->
+    <section id="rbac">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">ROLE CONTROLS & SECURITY</div>
+          <h2>Tailored Access for Every Operational Tier</h2>
+          <p>Granular RBAC profiles ensure technicians only see diagnostics, buyers see stock levels, and store managers keep margins confidential.</p>
+        </div>
+
+        <div class="roles-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem;">
+          
+          <!-- Role 1: Admin -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge" style="color:var(--volt);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Studio Admin</h3>
+                <p class="tilt-card-desc">Full governance over all global warehouses, user provisioning, custom pricing formula creation, and API credential management.</p>
+                <div class="tilt-card-metric" style="color:var(--volt);">Full Privileges</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 2: Manager -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex" style="color:var(--signal);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Warehouse Manager</h3>
+                <p class="tilt-card-desc">Complete inventory replenishment power, purchase order creation, batch returns authorization, and audit export abilities.</p>
+                <div class="tilt-card-metric" style="color:var(--signal);">Operations Lead</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 3: Analyst -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge" style="color:var(--plasma);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Hardware Analyst</h3>
+                <p class="tilt-card-desc">Full access to deep predictive modeling, cohort margin heatmaps, and customizable CSV/Excel report generation.</p>
+                <div class="tilt-card-metric" style="color:var(--plasma);">Data & Analytics</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 4: Viewer -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex" style="color:var(--amber);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Audit Viewer</h3>
+                <p class="tilt-card-desc">Read-only overview telemetry for external financial controllers, store associates, and logistics dispatchers.</p>
+                <div class="tilt-card-metric" style="color:var(--amber);">Read Only</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: TESTIMONIALS (TILT-CARD CAROUSEL) -->
+    <section id="testimonials" style="background: rgba(11, 16, 48, 0.3);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">VERIFIED STUDIO OPERATORS</div>
+          <h2>Built for Teams Managing Millions in Hardware</h2>
+          <p>Read how high-throughput consumer electronics businesses scaled with VOLTARIS.</p>
+        </div>
+
+        <div class="testimonials-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 2rem;">
+          
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                </div>
+                <h3 class="tilt-card-title">"Eliminated Discrepancies Overnight"</h3>
+                <p class="tilt-card-desc">"Tracking 40,000 serialized smartphones with spreadsheets was a nightmare. VOLTARIS gave us instant IMEI reconciliation across 18 regional retail branches."</p>
+                <div class="tilt-card-metric" style="font-size:0.875rem;">
+                  <strong style="color:var(--text-pure);">Marcus Vance</strong><br>
+                  <span style="color:var(--muted); font-size:0.75rem;">VP Operations, Nexus Mobile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                </div>
+                <h3 class="tilt-card-title">"Cut RMA Cycle Times by 64%"</h3>
+                <p class="tilt-card-desc">"Our repair benches handle over 1,200 laptops a week. The warranty expiration alerts and automated supplier claim exports paid for the license in week one."</p>
+                <div class="tilt-card-metric" style="font-size:0.875rem;">
+                  <strong style="color:var(--text-pure);">Elena Rostova</strong><br>
+                  <span style="color:var(--muted); font-size:0.75rem;">Director of Engineering, Quantum Lab</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                </div>
+                <h3 class="tilt-card-title">"Accurate Stock Forecasting"</h3>
+                <p class="tilt-card-desc">"VOLTARIS predicted our holiday wearables stockout 3 weeks ahead of our suppliers' backlog. We locked in orders early and preserved our 44% gross margin."</p>
+                <div class="tilt-card-metric" style="font-size:0.875rem;">
+                  <strong style="color:var(--text-pure);">Tariq Al-Mansoor</strong><br>
+                  <span style="color:var(--muted); font-size:0.75rem;">Chief Merchandiser, Volta Distribution</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: PRICING TEASER & FAQ ACCORDION -->
+    <section id="pricing-teaser">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">TRANSPARENT LICENSING</div>
+          <h2>Built for Growing Hubs and Enterprise Studios</h2>
+          <p>Choose the tier designed for your device volume. All plans include 3D tilt interface and role management.</p>
+        </div>
+
+        <!-- 3 Pricing Cards -->
+        <div class="pricing-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem; margin-bottom:4rem;">
+          
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Starter Studio</h3>
+                <div style="font-family:var(--font-mono); font-size:2.25rem; font-weight:700; color:var(--text-pure); margin-bottom:0.5rem;">$149<span style="font-size:0.875rem; color:var(--muted);">/mo</span></div>
+                <p class="tilt-card-desc">For boutique electronics retailers and standalone gadget repair workshops tracking up to 5,000 SKUs.</p>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.8125rem; color:var(--muted); margin-bottom:1.5rem; text-align:center;">
+                  <li>✓ 5,000 Active Devices</li>
+                  <li>✓ Real-time IMEI Scanning</li>
+                  <li>✓ 3 User Seats (Admin, Tech)</li>
+                  <li>✓ CSV & Excel Exports</li>
+                </ul>
+                <a href="login.html" class="btn btn-ghost" style="width:100%;">Select Starter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Pro Card -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card" style="border-color:var(--volt); box-shadow: 0 0 30px rgba(198, 255, 61, 0.2);">
+              <div class="tilt-card-content">
+                <div class="section-tag" style="margin-bottom:0.75rem;">MOST POPULAR</div>
+                <div class="card-icon-badge" style="background:var(--volt-dim); color:var(--volt); border-color:var(--volt);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Pro Studio</h3>
+                <div style="font-family:var(--font-mono); font-size:2.25rem; font-weight:700; color:var(--volt); margin-bottom:0.5rem;">$389<span style="font-size:0.875rem; color:var(--muted);">/mo</span></div>
+                <p class="tilt-card-desc">For multi-location electronics stores and high-volume distributors with predictive stock forecasting.</p>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.8125rem; color:var(--muted); margin-bottom:1.5rem; text-align:center;">
+                  <li>✓ 50,000 Active Devices</li>
+                  <li>✓ Predictive Stock Runout AI</li>
+                  <li>✓ 15 User Seats with Custom RBAC</li>
+                  <li>✓ Automated Scheduled Reports</li>
+                  <li>✓ API & POS Barcode Integrations</li>
+                </ul>
+                <a href="login.html" class="btn btn-volt" style="width:100%;">Launch Pro Studio</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3 class="tilt-card-title">Enterprise Grid</h3>
+                <div style="font-family:var(--font-mono); font-size:2.25rem; font-weight:700; color:var(--text-pure); margin-bottom:0.5rem;">$899<span style="font-size:0.875rem; color:var(--muted);">/mo</span></div>
+                <p class="tilt-card-desc">For national electronics chains, automated fulfillment centers, and global franchise operations.</p>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.8125rem; color:var(--muted); margin-bottom:1.5rem; text-align:center;">
+                  <li>✓ Unlimited Devices & Warehouses</li>
+                  <li>✓ Dedicated Telemetry Server Node</li>
+                  <li>✓ Unlimited Role-Based Seats</li>
+                  <li>✓ SOC2 Cryptographic Audit Logs</li>
+                  <li>✓ 24/7 Dedicated Hardware SLAs</li>
+                </ul>
+                <a href="contact.html" class="btn btn-ghost" style="width:100%;">Contact Enterprise</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div style="max-width:800px; margin-inline:auto;">
+          <h3 style="text-align:center; font-size:var(--fs-xl); margin-bottom:2rem;">Frequently Answered Questions</h3>
+          
+          <div class="accordion-item active">
+            <button class="accordion-header" type="button">
+              <span>Can VOLTARIS track serialized devices and non-serialized accessories together?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-body">
+              <p>Yes. VOLTARIS features a hybrid inventory engine that tracks IMEI/Serial-individualized devices (smartphones, laptops, smartwatches) alongside bulk batch SKUs (cables, GaN chargers, cases) within the exact same warehouse catalog.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span>How does the role-based access control (RBAC) work in practice?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-body">
+              <p>VOLTARIS provides 4 out-of-the-box role tiers: Admin, Manager, Analyst, and Viewer. In the Users tab, admins can selectively enable or disable permissions such as inventory modification, cost price visibility, and data exports in real time.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span>Is external internet or cloud CDN required to run VOLTARIS?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-body">
+              <p>No. VOLTARIS is built using zero-CDN architecture. All font files, charting libraries, and high-resolution assets are stored locally, making it ideal for air-gapped warehouse terminals and high-security defense or enterprise environments.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: BIG CALL-TO-ACTION BANNER -->
+    <section class="cta-banner-section" id="cta">
+      <div class="container">
+        <div class="cta-banner-box">
+          <img src="images/ui/cta-neon-circuit.webp" alt="Convergence of neon electronic signal pathways across deep dark circuit landscape" class="cta-banner-bg" width="1200" height="675" loading="lazy">
+          <div class="cta-banner-content">
+            <div class="section-tag">INSTANT DEPLOYMENT</div>
+            <h2>Take Complete Control of Your Electronics Studio</h2>
+            <p>Join over 1,840 electronics retailers and repair studios saving 40+ hours every month with VOLTARIS.</p>
+            <div class="cta-banner-actions">
+              <a href="dashboard.html" class="btn btn-volt btn-lg">Access Live Studio</a>
+              <a href="contact.html" class="btn btn-signal btn-lg">Schedule Live Engineering Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Global on all pages) -->
+  <footer class="voltaris-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <img src="images/brand/logo.svg" alt="VOLTARIS" width="180" height="42">
+          <p>Every gadget. Every number. Under control. The premier operational studio for electronics retailers, repair labs, and gadget distributors.</p>
+          <div class="footer-socials" aria-label="Social Media Links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (formerly Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.067 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <ul class="footer-col-links">
+            <li><a href="platform.html#features">SKU Management</a></li>
+            <li><a href="platform.html#lifecycle">IMEI & Warranty</a></li>
+            <li><a href="platform.html#pricing">Pricing Tiers</a></li>
+            <li><a href="platform.html#integrations">Integrations</a></li>
+            <li><a href="platform.html#security">Security & RBAC</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Insights</div>
+          <ul class="footer-col-links">
+            <li><a href="insights.html#studio">Interactive Studio</a></li>
+            <li><a href="insights.html#leaderboard">Top Gadgets</a></li>
+            <li><a href="insights.html#radar">Trend Radar</a></li>
+            <li><a href="insights.html#case-studies">Case Studies</a></li>
+            <li><a href="insights.html#reports">Sample Audits</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Studio</div>
+          <ul class="footer-col-links">
+            <li><a href="contact.html#about">About Story</a></li>
+            <li><a href="contact.html#team">Leadership</a></li>
+            <li><a href="contact.html#scheduler">Book a Demo</a></li>
+            <li><a href="login.html">Demo Accounts</a></li>
+            <li><a href="dashboard.html">App Portal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Stay Synchronized</div>
+          <p style="font-size:var(--fs-xs); color:var(--muted); margin-bottom:1rem;">Receive quarterly electronics supply-chain forecasts and depreciation telemetry.</p>
+          <form style="display:flex; gap:0.5rem;" onsubmit="event.preventDefault(); alert('Subscribed to VOLTARIS Telemetry Brief.');">
+            <input type="email" placeholder="engineer@hardware.com" required style="background:rgba(18,26,66,0.8); border:1px solid var(--border-line); border-radius:var(--radius-sm); padding:0.5rem 0.75rem; color:#fff; font-size:0.8125rem; flex:1;">
+            <button type="submit" class="btn btn-volt btn-sm">Join</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 VOLTARIS Technologies Inc. All rights reserved. Zero-CDN architecture.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-up-btn" id="scrollUpBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- Local Chart.js Vendor Script (No CDN) -->
+  <script src="assets/js/vendor/chart.umd.js"></script>
+
+  <!-- ES Modules Entrypoint -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

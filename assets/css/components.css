@@ -1,0 +1,1308 @@
+/* ==========================================================================
+   VOLTARIS COMPONENTS
+   - 3D Tilt Cards with Electronics Animations & Center-Aligned Layout
+   - Strict 4-Link Nav Bar & Mobile Drawer
+   - Buttons, Badges, Tabs, Accordions, Modals, Marquee Strip
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVIGATION BAR (STRICT: ONLY 4 LINKS: Home, Platform, Insights, Contact)
+   -------------------------------------------------------------------------- */
+header:has(.voltaris-nav),
+.site-header {
+  height: var(--nav-height);
+  display: block;
+}
+
+.voltaris-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: rgba(5, 8, 22, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-line);
+  z-index: 1000;
+  transition: height var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.voltaris-nav.nav-scrolled {
+  height: var(--nav-height-scrolled);
+  background: rgba(5, 8, 22, 0.92);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(34, 229, 255, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  transition: transform var(--transition-fast);
+}
+
+.nav-brand:hover .nav-logo-img {
+  transform: scale(1.04);
+}
+
+/* STRICT: EXACTLY 4 NAV LINKS */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--muted);
+  position: relative;
+  padding-block: 0.35rem;
+  transition: color var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--grad-volt-signal);
+  transition: width var(--transition-base), left var(--transition-base);
+  box-shadow: 0 0 8px var(--signal);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-pure);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Right Nav Controls (Theme switch + Sign In + Start Free CTA) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile Menu Toggle */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-pure);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* Mobile Drawer Overlay */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 22, 0.98);
+  backdrop-filter: blur(24px);
+  z-index: 1005;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.mobile-nav-links .nav-link {
+  font-size: var(--fs-xl);
+}
+
+@media (max-width: 900px) {
+  .nav-links, .nav-actions .btn-volt, .nav-actions .btn-ghost {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    display: flex;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. BUTTONS & CTAs
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), filter var(--transition-fast);
+  text-decoration: none;
+  min-height: 44px;
+}
+
+/* Volt Primary CTA */
+.btn-volt {
+  background: var(--grad-volt-signal);
+  color: #050816 !important;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(198, 255, 61, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-volt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(198, 255, 61, 0.6);
+  color: #050816 !important;
+}
+
+/* Signal Secondary Button */
+.btn-signal {
+  background: rgba(34, 229, 255, 0.12);
+  color: var(--signal) !important;
+  border: 1px solid rgba(34, 229, 255, 0.4);
+  box-shadow: 0 0 16px rgba(34, 229, 255, 0.15);
+}
+
+.btn-signal:hover {
+  background: rgba(34, 229, 255, 0.25);
+  border-color: var(--signal);
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(34, 229, 255, 0.4);
+}
+
+/* Ghost / Glass Button */
+.btn-ghost {
+  background: rgba(18, 26, 66, 0.4);
+  color: var(--text-pure) !important;
+  border: 1px solid var(--border-line);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  border-color: var(--signal);
+  background: rgba(34, 229, 255, 0.22);
+  color: #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(34, 229, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Small Button Variant */
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: var(--fs-xs);
+  min-height: 36px;
+}
+
+.btn-lg {
+  padding: 0.95rem 2.2rem;
+  font-size: var(--fs-md);
+}
+
+/* --------------------------------------------------------------------------
+   3. 3D TILT CARDS ARCHITECTURE (MANDATORY ON ALL CARD TYPES)
+   - Perspective 1000px, preserve-3d, translateZ
+   - Moving glare layer + neon border follower
+   - STRICT CONTENT RULES:
+     * In ALL views (mobile, tablet, laptop, desktop): card icon and text
+       are CENTER-ALIGNED (icon on top, then title, then description,
+       then button/metric — all text-align: center, flex column, align-items: center).
+     * Icons sit inside glowing circular/hex badge.
+     * Electronic animation on each card.
+   -------------------------------------------------------------------------- */
+.tilt-card-wrapper {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.tilt-card {
+  position: relative;
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: var(--shadow-card);
+  transform-style: preserve-3d;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  height: 100%;
+  overflow: hidden;
+
+  /* STRICT: ALL VIEWS CENTER-ALIGNED */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+/* Inner 3D Lifted Container */
+.tilt-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(35px);
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 2;
+}
+
+/* Specular Glare Effect */
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(34, 229, 255, 0.16) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.tilt-card:hover .tilt-glare {
+  opacity: 1;
+}
+
+.tilt-card:hover {
+  border-color: rgba(34, 229, 255, 0.55);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(34, 229, 255, 0.25);
+}
+
+/* Glowing Circular or Hex Icon Badge */
+.card-icon-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(34, 229, 255, 0.15) 0%, rgba(139, 92, 255, 0.2) 100%);
+  border: 1px solid rgba(34, 229, 255, 0.4);
+  color: var(--volt);
+  box-shadow: 0 0 20px rgba(34, 229, 255, 0.25);
+  margin-bottom: 1.25rem;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card-icon-badge svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.75;
+}
+
+.tilt-card:hover .card-icon-badge {
+  transform: scale(1.08);
+  box-shadow: 0 0 28px rgba(198, 255, 61, 0.4);
+  color: var(--volt);
+}
+
+/* Hex Badge Variant */
+.card-icon-badge.badge-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 0;
+}
+
+/* Card Typography & Alignment (Strict Center) */
+.tilt-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--text-pure);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.tilt-card-desc {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  max-width: 36ch;
+}
+
+.tilt-card-metric {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  color: var(--signal);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Case Studies Card Alignment */
+.case-studies-grid .tilt-card-title {
+  min-height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.case-studies-grid .tilt-card-desc {
+  min-height: 3.8rem;
+  margin-bottom: 1rem;
+}
+
+.case-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-line);
+}
+
+.case-metric-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+
+.case-metric-tag {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.case-metric-tag.before {
+  color: var(--flare);
+}
+
+.case-metric-tag.after {
+  color: var(--volt);
+}
+
+.case-metric-val {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.case-metric-val.before-val {
+  color: var(--text-pure);
+}
+
+.case-metric-val.after-val {
+  color: var(--volt);
+}
+
+.case-metric-lbl {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   4. ELECTRONICS-THEMED CARD ANIMATIONS (ROTATED ACROSS CARDS)
+   -------------------------------------------------------------------------- */
+
+/* Animation 1: Circuit-Trace Line Drawing Around Border */
+.anim-circuit-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--signal) 50%, transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.anim-circuit-border:hover::after {
+  opacity: 1;
+  animation: traceBorder 2.4s linear infinite;
+}
+
+@keyframes traceBorder {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* Animation 2: Pulsing Signal Radar Ring Behind Icon */
+.anim-signal-ring .card-icon-badge::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 1px solid var(--signal);
+  opacity: 0;
+  animation: radarRing 2.2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes radarRing {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Animation 3: Battery-Charge Fill Bar (Deprecated & Removed) */
+.anim-battery-bar .battery-meter {
+  display: none !important;
+}
+
+/* Animation 4: Scanning Laser Line Sweeping Over Card */
+.anim-laser-scan::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--volt), var(--signal), transparent);
+  box-shadow: 0 0 14px var(--volt), 0 0 6px var(--signal);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.anim-laser-scan:hover::before {
+  opacity: 0.85;
+  animation: laserScan 2.2s infinite ease-in-out;
+}
+
+@keyframes laserScan {
+  0% { top: 0%; opacity: 0; }
+  20% { opacity: 0.9; }
+  80% { opacity: 0.9; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Animation 5: Blinking Multistate LED Dot */
+/* Animation 6: Data-Bit Particles Floating Up */
+.anim-data-particles {
+  position: relative;
+}
+
+.data-bit-particle {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(34, 229, 255, 0.6);
+  pointer-events: none;
+  animation: floatBit 3s infinite linear;
+}
+
+@keyframes floatBit {
+  0% { transform: translateY(40px); opacity: 0; }
+  40% { opacity: 0.8; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+/* Animation 7: Dynamic Equalizer Waveform Bars */
+.anim-equalizer-bars .equalizer-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 20px;
+  margin-top: 0.75rem;
+}
+
+.equalizer-bar {
+  width: 4px;
+  background: var(--grad-plasma-signal);
+  border-radius: 2px;
+  animation: eqBounce 1.2s infinite ease-in-out alternate;
+}
+
+.equalizer-bar:nth-child(1) { height: 35%; animation-delay: 0.1s; }
+.equalizer-bar:nth-child(2) { height: 75%; animation-delay: 0.3s; }
+.equalizer-bar:nth-child(3) { height: 100%; animation-delay: 0.15s; }
+.equalizer-bar:nth-child(4) { height: 50%; animation-delay: 0.4s; }
+.equalizer-bar:nth-child(5) { height: 85%; animation-delay: 0.25s; }
+
+@keyframes eqBounce {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* --------------------------------------------------------------------------
+   5. PARTNER SHOWCASE STRIP (All Partners Fully Visible — No Text Hidden)
+   -------------------------------------------------------------------------- */
+.marquee-container {
+  position: relative;
+  width: 100%;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--border-line);
+  border-bottom: 1px solid var(--border-line);
+  background: rgba(11, 16, 48, 0.45);
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  display: none !important;
+}
+
+.marquee-track {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem 3rem;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  width: 100%;
+  animation: none !important;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  white-space: nowrap;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.marquee-item:hover {
+  color: var(--volt);
+  transform: translateY(-2px);
+}
+
+.marquee-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--signal);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. ACCORDION (FAQ & Glossary)
+   -------------------------------------------------------------------------- */
+.accordion-item {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.accordion-item.active {
+  border-color: var(--signal);
+  box-shadow: 0 8px 24px -6px rgba(34, 229, 255, 0.15);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text-pure);
+}
+
+.accordion-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--signal);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+  color: var(--volt);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding-inline: 1.5rem;
+}
+
+.accordion-item.active .accordion-body {
+  max-height: 400px;
+  padding-bottom: 1.35rem;
+}
+
+.accordion-body p {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   7. MODALS
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 22, 0.85);
+  backdrop-filter: blur(16px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: var(--bg-board);
+  border: 1px solid var(--border-line-hover);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--volt);
+  background: rgba(198, 255, 61, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   8. FORM CONTROLS
+   -------------------------------------------------------------------------- */
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-pure);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: rgba(18, 26, 66, 0.65);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  color: var(--text-pure);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--signal);
+  box-shadow: 0 0 16px rgba(34, 229, 255, 0.25);
+}
+
+.form-error {
+  color: var(--flare);
+  font-size: var(--fs-xs);
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.form-group.has-error .form-error {
+  display: block;
+}
+
+.form-group.has-error .form-input {
+  border-color: var(--flare);
+}
+
+/* Status Chips */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.status-chip.in-stock {
+  background: rgba(198, 255, 61, 0.12);
+  color: var(--volt);
+  border: 1px solid rgba(198, 255, 61, 0.3);
+}
+
+.status-chip.low-stock {
+  background: rgba(255, 176, 32, 0.12);
+  color: var(--amber);
+  border: 1px solid rgba(255, 176, 32, 0.3);
+}
+
+.status-chip.out-stock {
+  background: rgba(255, 61, 139, 0.12);
+  color: var(--flare);
+  border: 1px solid rgba(255, 61, 139, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER (Global on all pages)
+   -------------------------------------------------------------------------- */
+.voltaris-footer {
+  border-top: 1px solid var(--border-line);
+  background: #040612;
+  padding-top: clamp(3.5rem, 6vw, 5rem);
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  max-width: 32ch;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: rgba(18, 26, 66, 0.65);
+  border: 1px solid var(--border-line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-light);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  border-color: var(--volt);
+  color: var(--volt);
+  background: rgba(198, 255, 61, 0.14);
+  box-shadow: 0 0 18px rgba(198, 255, 61, 0.4);
+}
+
+.social-link svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.social-link:hover svg {
+  transform: scale(1.1);
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-pure);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-col-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col-links a {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-col-links a:hover {
+  color: var(--signal);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(34, 229, 255, 0.1);
+  padding-top: 1.5rem;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9b. PRICING CARDS — aligned icons, titles, prices & bottom-pinned CTAs
+   -------------------------------------------------------------------------- */
+/* Equal top room on every card so the floating badge never shifts content */
+.pricing-grid .tilt-card {
+  padding-top: 3.5rem;
+}
+
+/* "MOST POPULAR" badge floats in the top padding instead of the content flow */
+.pricing-grid .tilt-card-content > .section-tag {
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 !important;
+  white-space: nowrap;
+}
+
+/* Push every CTA button to the bottom so buttons line up across cards */
+.pricing-grid .tilt-card-content > .btn:last-child {
+  margin-top: auto;
+}
+
+/* Pricing Grid Buttons Interactive Hover States */
+.pricing-grid .btn {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), filter var(--transition-fast);
+}
+
+/* Hovering on card highlights ghost button */
+.pricing-grid .tilt-card:hover .btn-ghost {
+  border-color: rgba(34, 229, 255, 0.6);
+  background: rgba(34, 229, 255, 0.14);
+  box-shadow: 0 0 16px rgba(34, 229, 255, 0.25);
+  color: #FFFFFF !important;
+}
+
+/* Hovering directly on ghost buttons turns them into brilliant volt/cyan glowing CTAs */
+.pricing-grid .btn-ghost:hover {
+  background: var(--grad-volt-signal) !important;
+  color: #050816 !important;
+  font-weight: 700 !important;
+  border-color: var(--volt) !important;
+  box-shadow: 0 0 32px rgba(198, 255, 61, 0.65), 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Hovering on featured Pro Studio button amplifies neon volt aura */
+.pricing-grid .btn-volt:hover {
+  box-shadow: 0 0 40px rgba(198, 255, 61, 0.8), 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-3px) scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* --------------------------------------------------------------------------
+   10. SCROLL UP (BACK TO TOP) BUTTON
+   -------------------------------------------------------------------------- */
+.scroll-up-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  background: rgba(11, 16, 48, 0.88);
+  border: 1px solid var(--border-line);
+  color: var(--signal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(34, 229, 255, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.scroll-up-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-up-btn:hover {
+  background: rgba(18, 26, 66, 0.95);
+  border-color: var(--volt);
+  color: var(--volt);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 24px rgba(198, 255, 61, 0.45);
+}
+
+.scroll-up-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.scroll-up-btn:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .scroll-up-btn {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. ALL TABLET & PRO VIEWS (641px - 1368px): 
+   ALL CARDS SECTIONS - LAST CARD ALIGNED CENTER WITH IDENTICAL SIZE
+   -------------------------------------------------------------------------- */
+
+/* A. 3-Card & Odd-Card Grids (Testimonials, Pricing, Case Studies, Reports, KPI Pulse)
+      When displayed across Tablet & Pro screens in 2 columns, center the orphan last card with identical width */
+@media (min-width: 641px) and (max-width: 1368px) {
+  .testimonials-grid,
+  #testimonials .container > div[style*="grid"],
+  #testimonials .testimonials-grid,
+  .pricing-grid,
+  #pricing .container > div[style*="grid"],
+  #pricing-teaser .container > div[style*="grid"],
+  #pricing .pricing-grid,
+  #pricing-teaser .pricing-grid,
+  .case-studies-grid,
+  #case-studies .container > div[style*="grid"],
+  #case-studies .case-studies-grid,
+  .reports-grid,
+  #reports .container > div[style*="grid"],
+  #reports .reports-grid,
+  .kpi-pulse-grid,
+  #kpi-row .container > div[style*="grid"],
+  #kpi-row .kpi-pulse-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* 2rem gap grids: Testimonials, Pricing, Case Studies */
+  .testimonials-grid > :last-child:nth-child(odd),
+  #testimonials .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #testimonials .testimonials-grid > :last-child:nth-child(odd),
+  .pricing-grid > :last-child:nth-child(odd),
+  #pricing .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #pricing-teaser .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #pricing .pricing-grid > :last-child:nth-child(odd),
+  #pricing-teaser .pricing-grid > :last-child:nth-child(odd),
+  .case-studies-grid > :last-child:nth-child(odd),
+  #case-studies .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #case-studies .case-studies-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: 100% !important;
+    max-width: calc((100% - 2rem) / 2) !important;
+  }
+
+  /* 1.5rem gap grids: Reports */
+  .reports-grid > :last-child:nth-child(odd),
+  #reports .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #reports .reports-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: 100% !important;
+    max-width: calc((100% - 1.5rem) / 2) !important;
+  }
+
+  /* 1.25rem gap grids: KPI Pulse */
+  .kpi-pulse-grid > :last-child:nth-child(odd),
+  #kpi-row .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #kpi-row .kpi-pulse-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: 100% !important;
+    max-width: calc((100% - 1.25rem) / 2) !important;
+  }
+}
+
+/* B. 4-Card Grids (Roles, Security, Core Values / Philosophy)
+      In Pro views (820px - 1368px): 3 columns in row 1, Card 4 centered in Column 2 with identical size */
+@media (min-width: 820px) and (max-width: 1368px) {
+  .roles-grid,
+  #roles .container > div[style*="grid"],
+  #roles .roles-grid,
+  .security-grid,
+  #security .container > div[style*="grid"],
+  #security .security-grid,
+  .values-grid,
+  .philosophy-grid,
+  #values .container > div[style*="grid"],
+  #philosophy .container > div[style*="grid"],
+  #values .values-grid,
+  #philosophy .philosophy-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+
+  .roles-grid > :last-child:nth-child(4),
+  #roles .container > div[style*="grid"] > :last-child:nth-child(4),
+  #roles .roles-grid > :last-child:nth-child(4),
+  .security-grid > :last-child:nth-child(4),
+  #security .container > div[style*="grid"] > :last-child:nth-child(4),
+  #security .security-grid > :last-child:nth-child(4),
+  .values-grid > :last-child:nth-child(4),
+  .philosophy-grid > :last-child:nth-child(4),
+  #values .container > div[style*="grid"] > :last-child:nth-child(4),
+  #philosophy .container > div[style*="grid"] > :last-child:nth-child(4),
+  #values .values-grid > :last-child:nth-child(4),
+  #philosophy .philosophy-grid > :last-child:nth-child(4) {
+    grid-column: 2 !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* In standard tablet (641px - 819px), 4-card grids format as clean 2x2 */
+@media (min-width: 641px) and (max-width: 819px) {
+  .roles-grid,
+  #roles .container > div[style*="grid"],
+  #roles .roles-grid,
+  .security-grid,
+  #security .container > div[style*="grid"],
+  #security .security-grid,
+  .values-grid,
+  .philosophy-grid,
+  #values .container > div[style*="grid"],
+  #philosophy .container > div[style*="grid"],
+  #values .values-grid,
+  #philosophy .philosophy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+
+  .roles-grid > :last-child:nth-child(4),
+  #roles .container > div[style*="grid"] > :last-child:nth-child(4),
+  #roles .roles-grid > :last-child:nth-child(4),
+  .security-grid > :last-child:nth-child(4),
+  #security .container > div[style*="grid"] > :last-child:nth-child(4),
+  #security .security-grid > :last-child:nth-child(4),
+  .values-grid > :last-child:nth-child(4),
+  .philosophy-grid > :last-child:nth-child(4),
+  #values .container > div[style*="grid"] > :last-child:nth-child(4),
+  #philosophy .container > div[style*="grid"] > :last-child:nth-child(4),
+  #values .values-grid > :last-child:nth-child(4),
+  #philosophy .philosophy-grid > :last-child:nth-child(4) {
+    grid-column: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Mobile view (<= 640px): 1 column clean stack */
+@media (max-width: 640px) {
+  .testimonials-grid,
+  #testimonials .container > div[style*="grid"],
+  #testimonials .testimonials-grid,
+  .pricing-grid,
+  #pricing .container > div[style*="grid"],
+  #pricing-teaser .container > div[style*="grid"],
+  #pricing .pricing-grid,
+  #pricing-teaser .pricing-grid,
+  .case-studies-grid,
+  #case-studies .container > div[style*="grid"],
+  #case-studies .case-studies-grid,
+  .reports-grid,
+  #reports .container > div[style*="grid"],
+  #reports .reports-grid,
+  .kpi-pulse-grid,
+  #kpi-row .container > div[style*="grid"],
+  #kpi-row .kpi-pulse-grid,
+  .roles-grid,
+  #roles .container > div[style*="grid"],
+  #roles .roles-grid,
+  .security-grid,
+  #security .container > div[style*="grid"],
+  #security .security-grid,
+  .values-grid,
+  .philosophy-grid,
+  #values .container > div[style*="grid"],
+  #philosophy .container > div[style*="grid"],
+  #values .values-grid,
+  #philosophy .philosophy-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .testimonials-grid > :last-child:nth-child(odd),
+  #testimonials .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #testimonials .testimonials-grid > :last-child:nth-child(odd),
+  .pricing-grid > :last-child:nth-child(odd),
+  #pricing .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #pricing-teaser .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #pricing .pricing-grid > :last-child:nth-child(odd),
+  #pricing-teaser .pricing-grid > :last-child:nth-child(odd),
+  .case-studies-grid > :last-child:nth-child(odd),
+  #case-studies .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #case-studies .case-studies-grid > :last-child:nth-child(odd),
+  .reports-grid > :last-child:nth-child(odd),
+  #reports .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #reports .reports-grid > :last-child:nth-child(odd),
+  .kpi-pulse-grid > :last-child:nth-child(odd),
+  #kpi-row .container > div[style*="grid"] > :last-child:nth-child(odd),
+  #kpi-row .kpi-pulse-grid > :last-child:nth-child(odd),
+  .roles-grid > :last-child:nth-child(4),
+  #roles .container > div[style*="grid"] > :last-child:nth-child(4),
+  #roles .roles-grid > :last-child:nth-child(4),
+  .security-grid > :last-child:nth-child(4),
+  #security .container > div[style*="grid"] > :last-child:nth-child(4),
+  #security .security-grid > :last-child:nth-child(4),
+  .values-grid > :last-child:nth-child(4),
+  .philosophy-grid > :last-child:nth-child(4),
+  #values .container > div[style*="grid"] > :last-child:nth-child(4),
+  #philosophy .container > div[style*="grid"] > :last-child:nth-child(4),
+  #values .values-grid > :last-child:nth-child(4),
+  #philosophy .philosophy-grid > :last-child:nth-child(4) {
+    grid-column: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}

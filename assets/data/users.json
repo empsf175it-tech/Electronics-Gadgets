@@ -1,0 +1,154 @@
+{
+  "demoAccounts": [
+    {
+      "email": "admin@voltaris.demo",
+      "password": "Admin@123",
+      "name": "Dr. Ronald Vance",
+      "role": "Admin",
+      "avatar": "RV",
+      "status": "Active"
+    },
+    {
+      "email": "manager@voltaris.demo",
+      "password": "Manager@123",
+      "name": "Elena Rostova",
+      "role": "Manager",
+      "avatar": "ER",
+      "status": "Active"
+    },
+    {
+      "email": "analyst@voltaris.demo",
+      "password": "Analyst@123",
+      "name": "Kaito Tanaka",
+      "role": "Analyst",
+      "avatar": "KT",
+      "status": "Active"
+    },
+    {
+      "email": "viewer@voltaris.demo",
+      "password": "Viewer@123",
+      "name": "Sophia Morales",
+      "role": "Viewer",
+      "avatar": "SM",
+      "status": "Active"
+    }
+  ],
+  "rolePermissions": {
+    "Admin": {
+      "viewOverview": true,
+      "viewInventory": true,
+      "manageInventory": true,
+      "deleteInventory": true,
+      "viewAnalytics": true,
+      "viewReports": true,
+      "exportData": true,
+      "manageUsers": true,
+      "manageSettings": true
+    },
+    "Manager": {
+      "viewOverview": true,
+      "viewInventory": true,
+      "manageInventory": true,
+      "deleteInventory": false,
+      "viewAnalytics": true,
+      "viewReports": true,
+      "exportData": true,
+      "manageUsers": false,
+      "manageSettings": false
+    },
+    "Analyst": {
+      "viewOverview": true,
+      "viewInventory": true,
+      "manageInventory": false,
+      "deleteInventory": false,
+      "viewAnalytics": true,
+      "viewReports": true,
+      "exportData": true,
+      "manageUsers": false,
+      "manageSettings": false
+    },
+    "Viewer": {
+      "viewOverview": true,
+      "viewInventory": false,
+      "manageInventory": false,
+      "deleteInventory": false,
+      "viewAnalytics": false,
+      "viewReports": false,
+      "exportData": false,
+      "manageUsers": false,
+      "manageSettings": false
+    }
+  },
+  "userList": [
+    {
+      "id": "USR-101",
+      "name": "Dr. Ronald Vance",
+      "email": "admin@voltaris.demo",
+      "role": "Admin",
+      "location": "HQ - Austin, TX",
+      "lastActive": "Just now",
+      "status": "Active",
+      "mfaEnabled": true
+    },
+    {
+      "id": "USR-102",
+      "name": "Elena Rostova",
+      "email": "manager@voltaris.demo",
+      "role": "Manager",
+      "location": "Warehouse North - Chicago",
+      "lastActive": "14 mins ago",
+      "status": "Active",
+      "mfaEnabled": true
+    },
+    {
+      "id": "USR-103",
+      "name": "Kaito Tanaka",
+      "email": "analyst@voltaris.demo",
+      "role": "Analyst",
+      "location": "Hub Central - Seattle",
+      "lastActive": "1 hour ago",
+      "status": "Active",
+      "mfaEnabled": true
+    },
+    {
+      "id": "USR-104",
+      "name": "Sophia Morales",
+      "email": "viewer@voltaris.demo",
+      "role": "Viewer",
+      "location": "Studio South - Miami",
+      "lastActive": "3 hours ago",
+      "status": "Active",
+      "mfaEnabled": false
+    },
+    {
+      "id": "USR-105",
+      "name": "Marcus Chen",
+      "email": "m.chen@voltaris.demo",
+      "role": "Manager",
+      "location": "Distribution East - New York",
+      "lastActive": "Yesterday",
+      "status": "Active",
+      "mfaEnabled": true
+    },
+    {
+      "id": "USR-106",
+      "name": "Amina Al-Mansoor",
+      "email": "amina.m@voltaris.demo",
+      "role": "Analyst",
+      "location": "EMEA Operations - London",
+      "lastActive": "2 days ago",
+      "status": "Active",
+      "mfaEnabled": true
+    },
+    {
+      "id": "USR-107",
+      "name": "Lucas Lindqvist",
+      "email": "lucas.l@voltaris.demo",
+      "role": "Viewer",
+      "location": "Nordic Hub - Stockholm",
+      "lastActive": "5 days ago",
+      "status": "Inactive",
+      "mfaEnabled": false
+    }
+  ]
+}

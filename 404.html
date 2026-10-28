@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Circuit Disconnected | VOLTARIS</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body style="display:flex; flex-direction:column; min-height:100vh;">
+
+  <!-- NAVIGATION BAR (STRICT: ONLY 4 LINKS: Home, Platform, Insights, Contact) -->
+  <header class="site-header">
+    <nav class="voltaris-nav" aria-label="Main Navigation">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand" aria-label="Voltaris Home">
+          <img src="images/brand/logo.svg" alt="VOLTARIS Logo" class="nav-logo-img" width="180" height="42">
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="platform.html" class="nav-link">Platform</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="dashboard.html" class="btn btn-volt btn-sm">Dashboard</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main style="flex:1; display:flex; align-items:center; justify-content:center; padding:clamp(2rem, 6vw, 5rem);">
+    <div class="container text-center" style="max-width:600px;">
+      
+      <!-- Animated Disconnected Circuit Icon -->
+      <div style="width:100px; height:100px; margin-inline:auto; margin-bottom:2rem; border-radius:50%; background:rgba(255,61,139,0.12); border:2px solid var(--flare); display:flex; align-items:center; justify-content:center; color:var(--flare); box-shadow:0 0 30px rgba(255,61,139,0.3);">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+
+      <div class="section-tag" style="background:rgba(255,61,139,0.15); border-color:var(--flare); color:var(--flare);">BUS 404 // CIRCUIT DISCONNECTED</div>
+      <h1 style="font-size:clamp(3rem, 6vw, 4.5rem); color:var(--text-pure); margin-block:0.5rem 1rem;">404</h1>
+      <p style="font-size:var(--fs-md); color:var(--muted); margin-bottom:2rem; margin-inline:auto;">
+        The hardware address or telemetry route you requested does not exist on this bus. It may have been retired or decommissioned.
+      </p>
+
+      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+        <a href="index.html" class="btn btn-volt btn-lg">Return to Base Station</a>
+        <a href="dashboard.html" class="btn btn-ghost btn-lg">Launch Studio Dashboard</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="voltaris-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 VOLTARIS Technologies Inc. All rights reserved. Zero-CDN architecture.</div>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-up-btn" id="scrollUpBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

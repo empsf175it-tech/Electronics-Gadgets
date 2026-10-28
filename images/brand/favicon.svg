@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="favVolt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C6FF3D" />
+      <stop offset="100%" stop-color="#22E5FF" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#050816"/>
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="6.25" stroke="rgba(34, 229, 255, 0.4)" stroke-width="1.5"/>
+  <path d="M7 8 L13 20 L15 17 L17 17 L16 25 L18 25 L25 8" stroke="url(#favVolt)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 17 L18 12 L16 17 L19 17 L15 23 L16 20 Z" fill="#C6FF3D"/>
+  <circle cx="16" cy="25" r="1.5" fill="#22E5FF"/>
+</svg>

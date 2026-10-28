@@ -1,0 +1,318 @@
+/* ==========================================================================
+   VOLTARIS BASE STYLES & TYPOGRAPHY
+   ========================================================================== */
+
+/* Local Fonts */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/Inter-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/JetBrainsMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/JetBrainsMono-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/JetBrainsMono-Bold.ttf') format('truetype');
+}
+
+/* Universal Reset & Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-void);
+  color: var(--text);
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  background-color: var(--bg-void);
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+/* PCB Trace & Grid Overlay Background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    linear-gradient(to right, rgba(34, 229, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 229, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 15% 20%, rgba(139, 92, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(34, 229, 255, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(198, 255, 61, 0.04) 0%, transparent 50%);
+  background-size: 48px 48px, 48px 48px, 100% 100%, 100% 100%, 100% 100%;
+  opacity: 0.85;
+}
+
+/* Subtle PCB Trace Lines Accent in Backing */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(198, 255, 61, 0.12) 1px, transparent 1px);
+  background-size: 96px 96px;
+  opacity: 0.35;
+}
+
+/* Content Container wrapper to sit above background */
+main, nav, footer, section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+  border-left: 1px solid var(--border-line);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--signal), var(--plasma));
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--volt), var(--signal));
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-pure);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--fs-hero); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+h5 { font-size: var(--fs-md); }
+h6 { font-size: var(--fs-sm); }
+
+p {
+  color: var(--muted);
+  max-width: 68ch;
+}
+
+a {
+  color: var(--signal);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--volt);
+}
+
+img, svg, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+/* Helper Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.text-center { text-align: center; }
+.text-volt { color: var(--volt); }
+.text-signal { color: var(--signal); }
+.text-plasma { color: var(--plasma); }
+.text-muted { color: var(--muted); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Section Base */
+section {
+  padding-block: clamp(3.5rem, 6vw, 6.5rem);
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--volt);
+  background: var(--volt-dim);
+  border: 1px solid rgba(198, 255, 61, 0.35);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.section-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--volt);
+  box-shadow: 0 0 8px var(--volt);
+  animation: pulseNode 2s infinite ease-in-out;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  margin-inline: auto;
+  font-size: var(--fs-md);
+}
+
+/* Custom Interactive Cursor Glow */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(34, 229, 255, 0.12) 0%, rgba(139, 92, 255, 0.06) 40%, transparent 70%);
+  z-index: 9990;
+  transition: opacity 0.4s ease, transform 0.08s ease-out;
+  opacity: 0;
+}
+
+@media (pointer: coarse) {
+  .cursor-glow { display: none !important; }
+}
+
+/* Page Preloader (Disabled) */
+#preloader {
+  display: none !important;
+}
+
+@keyframes drawTrace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseNode {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes ellipsis {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .cursor-glow { display: none !important; }
+}

@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights & Analytics Showcase — VOLTARIS</title>
+  <meta name="description"
+    content="Data that moves hardware. Explore interactive electronics charts, top-selling gadget leaderboards, trend radar forecasts, case studies, and articles.">
+  <link rel="canonical" href="https://voltaris.studio/insights.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VOLTARIS Insights & Hardware Telemetry">
+  <meta property="og:description"
+    content="Interactive chart studio, top-selling gadgets leaderboard, trend radar, and retail electronics analytics case studies.">
+  <meta property="og:image" content="images/brand/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION BAR (STRICT: ONLY 4 LINKS: Home, Platform, Insights, Contact) -->
+  <header class="site-header">
+    <nav class="voltaris-nav" aria-label="Main Navigation">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand" aria-label="Voltaris Home">
+          <img src="images/brand/logo.svg" alt="VOLTARIS Logo" class="nav-logo-img" width="180" height="42">
+        </a>
+
+        <!-- STRICT: 4 LINKS ONLY -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="platform.html" class="nav-link">Platform</a></li>
+          <li><a href="insights.html" class="nav-link active">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="dashboard.html" class="btn btn-volt btn-sm">Dashboard</a>
+          <button class="mobile-nav-toggle" aria-label="Open Mobile Menu" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-modal="true">
+    <img src="images/brand/logo.svg" alt="VOLTARIS" width="160" height="38" style="margin-bottom: 1rem;">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="platform.html" class="nav-link">Platform</a></li>
+      <li><a href="insights.html" class="nav-link active">Insights</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+      <a href="login.html" class="btn btn-ghost">Sign In</a>
+      <a href="dashboard.html" class="btn btn-volt">Dashboard</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero-section" style="padding-bottom: 3.5rem;">
+      <div class="hero-glow-bg"></div>
+      <div class="container text-center" style="max-width: 840px; margin-inline:auto;">
+        <div class="section-tag">HARDWARE BUSINESS INTELLIGENCE</div>
+        <h1 style="margin-bottom:1.25rem;">Data That Moves Product</h1>
+        <p style="font-size:var(--fs-md); margin-inline:auto; line-height:1.6;">
+          Real-time telemetry, predictive run rates, and margin optimization models generated across 2.4M+ active
+          consumer electronics units.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 & 3: INTERACTIVE CHART STUDIO & DATE/CATEGORY FILTERS -->
+    <section id="studio" style="border-top: 1px solid var(--border-line); background: rgba(11, 16, 48, 0.4);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">EXPLORATORY STUDIO</div>
+          <h2>Interactive Chart Studio</h2>
+          <p>Switch chart types and apply filters to analyze how device volumes, regional hubs, and product categories
+            impact profit yields.</p>
+        </div>
+
+        <div
+          style="background:var(--bg-card); border:1px solid var(--border-line-hover); border-radius:var(--radius-xl); padding:clamp(1.5rem, 4vw, 2.5rem); box-shadow:var(--shadow-elevated);">
+
+          <!-- Filter Controls Toolbar -->
+          <div
+            style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:1px solid var(--border-line);">
+
+            <!-- Chart Type Buttons -->
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <button type="button" class="cat-tab-btn chart-type-btn active" data-chart-type="sales">Sales
+                Trend</button>
+              <button type="button" class="cat-tab-btn chart-type-btn" data-chart-type="share">Category Share</button>
+              <button type="button" class="cat-tab-btn chart-type-btn" data-chart-type="warehouse">Warehouse
+                Stock</button>
+              <button type="button" class="cat-tab-btn chart-type-btn" data-chart-type="margin">Margin Matrix</button>
+              <button type="button" class="cat-tab-btn chart-type-btn" data-chart-type="forecast">90-Day
+                Forecast</button>
+            </div>
+
+            <!-- Date Range & Category Filter -->
+            <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
+              <div
+                style="display:flex; gap:0.25rem; background:rgba(18,26,66,0.8); border:1px solid var(--border-line); border-radius:var(--radius-full); padding:0.25rem 0.4rem;">
+                <button type="button" class="date-range-btn cat-tab-btn" data-range="7d"
+                  style="padding:0.35rem 0.8rem; font-size:0.75rem;">7D</button>
+                <button type="button" class="date-range-btn cat-tab-btn active" data-range="30d"
+                  style="padding:0.35rem 0.8rem; font-size:0.75rem;">30D</button>
+                <button type="button" class="date-range-btn cat-tab-btn" data-range="90d"
+                  style="padding:0.35rem 0.8rem; font-size:0.75rem;">90D</button>
+              </div>
+
+              <select id="studioCategoryFilter" class="form-select"
+                style="width:auto; padding:0.4rem 0.8rem; font-size:0.8125rem;">
+                <option value="All">All Categories</option>
+                <option value="Phones">Phones</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Wearables">Wearables</option>
+                <option value="Audio">Audio</option>
+                <option value="Smart Home">Smart Home</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Studio Chart Canvas -->
+          <div style="position:relative; width:100%; height:380px;">
+            <canvas id="studioChartCanvas"></canvas>
+          </div>
+
+          <div
+            style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; font-family:var(--font-mono); font-size:0.75rem; color:var(--muted); flex-wrap:wrap; gap:0.5rem;">
+            <span>DATA SOURCE: LOCAL VOLTARIS TELEMETRY BUS</span>
+            <span style="color:var(--volt);">CONFIDENCE INTERVAL: 95% (STOCHASTIC RUN RATE)</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: KPI CARDS ROW WITH SPARKLINES (5 TILT CARDS) -->
+    <section id="kpi-row" style="border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">GLOBAL BENCHMARKS</div>
+          <h2>Telemetry Pulse Metrics</h2>
+          <p>Real-time rolling indices calculated across all participating electronics distributor hubs.</p>
+        </div>
+
+        <div class="kpi-pulse-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem;">
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-circuit-border">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge" style="width:48px; height:48px; margin-bottom:0.75rem;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                </div>
+                <div class="kpi-title">Gross Revenue</div>
+                <div class="kpi-value" style="font-size:1.6rem;">$4.82M</div>
+                <div class="kpi-delta pos">+18.4% MoM</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-signal-ring">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex" style="width:48px; height:48px; margin-bottom:0.75rem;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                  </svg>
+                </div>
+                <div class="kpi-title">Units Dispatched</div>
+                <div class="kpi-value" style="font-size:1.6rem;">38,420</div>
+                <div class="kpi-delta pos">+9.2% velocity</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-blinking-led">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge" style="width:48px; height:48px; margin-bottom:0.75rem;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div class="kpi-title">Average Margin</div>
+                <div class="kpi-value" style="font-size:1.6rem; color:var(--volt);">42.8%</div>
+                <div class="kpi-delta pos">+3.2% vs target</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-laser-scan">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex" style="width:48px; height:48px; margin-bottom:0.75rem;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
+                    <polyline points="17 18 23 18 23 12" />
+                  </svg>
+                </div>
+                <div class="kpi-title">Return Rate (RMA)</div>
+                <div class="kpi-value" style="font-size:1.6rem; color:var(--signal);">1.2%</div>
+                <div class="kpi-delta pos">-0.6% reduction</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card anim-equalizer-bars">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge" style="width:48px; height:48px; margin-bottom:0.75rem;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  </svg>
+                </div>
+                <div class="kpi-title">Stock Turnover</div>
+                <div class="kpi-value" style="font-size:1.6rem;">18.5 Days</div>
+                <div class="kpi-delta pos">-4.2 days optimal</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TOP-SELLING GADGETS LEADERBOARD (WITH REAL UNIQUE IMAGES) -->
+    <section id="leaderboard" style="background: rgba(11, 16, 48, 0.4); border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">HARDWARE VELOCITY RANKINGS</div>
+          <h2>Top-Selling Gadgets Leaderboard</h2>
+          <p>Real-time sell-through velocity ranking across the top 6 product models this month.</p>
+        </div>
+
+        <div class="leaderboard-container">
+
+          <!-- Rank 1: Aura X2 -->
+          <div class="leaderboard-row">
+            <div class="leaderboard-rank">#01</div>
+            <div class="leaderboard-thumb">
+              <img src="images/products/gadget-aurax2.webp"
+                alt="Aura X2 Smartwatch Titanium product close-up with biometric interface" width="60" height="60"
+                loading="lazy">
+            </div>
+            <div class="leaderboard-info">
+              <h4>Aura X2 Smartwatch Titanium</h4>
+              <span>SKU: VLT-WB-001 • Wearables • $449.00</span>
+            </div>
+            <div class="leaderboard-bar-box">
+              <div class="leaderboard-bar-bg">
+                <div class="leaderboard-bar-fill" style="width:96%;"></div>
+              </div>
+            </div>
+            <div class="leaderboard-metric"
+              style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--volt);">
+              310 units/mo
+            </div>
+          </div>
+
+          <!-- Rank 2: PulseWave Pro -->
+          <div class="leaderboard-row">
+            <div class="leaderboard-rank">#02</div>
+            <div class="leaderboard-thumb">
+              <img src="images/products/gadget-pulsewave.webp" alt="PulseWave Pro ANC wireless spatial audio headphones"
+                width="60" height="60" loading="lazy">
+            </div>
+            <div class="leaderboard-info">
+              <h4>PulseWave Pro ANC Spatial</h4>
+              <span>SKU: VLT-AU-001 • Audio • $349.00</span>
+            </div>
+            <div class="leaderboard-bar-box">
+              <div class="leaderboard-bar-bg">
+                <div class="leaderboard-bar-fill" style="width:88%;"></div>
+              </div>
+            </div>
+            <div class="leaderboard-metric"
+              style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--signal);">
+              380 units/mo
+            </div>
+          </div>
+
+          <!-- Rank 3: TitanBook Ultra 16 -->
+          <div class="leaderboard-row">
+            <div class="leaderboard-rank">#03</div>
+            <div class="leaderboard-thumb">
+              <img src="images/products/gadget-titanbook.webp"
+                alt="TitanBook Ultra 16 M-Core high-performance workstation laptop" width="60" height="60"
+                loading="lazy">
+            </div>
+            <div class="leaderboard-info">
+              <h4>TitanBook Ultra 16 M-Core</h4>
+              <span>SKU: VLT-LP-001 • Laptops • $2,499.00</span>
+            </div>
+            <div class="leaderboard-bar-box">
+              <div class="leaderboard-bar-bg">
+                <div class="leaderboard-bar-fill" style="width:74%;"></div>
+              </div>
+            </div>
+            <div class="leaderboard-metric"
+              style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--plasma);">
+              54 units/mo
+            </div>
+          </div>
+
+          <!-- Rank 4: Vortex 5G Fold -->
+          <div class="leaderboard-row">
+            <div class="leaderboard-rank">#04</div>
+            <div class="leaderboard-thumb">
+              <img src="images/products/gadget-vortex5g.webp" alt="Vortex 5G Fold Ultra dual-screen smartphone"
+                width="60" height="60" loading="lazy">
+            </div>
+            <div class="leaderboard-info">
+              <h4>Vortex 5G Fold Ultra</h4>
+              <span>SKU: VLT-PH-001 • Phones • $1,399.00</span>
+            </div>
+            <div class="leaderboard-bar-box">
+              <div class="leaderboard-bar-bg">
+                <div class="leaderboard-bar-fill" style="width:68%;"></div>
+              </div>
+            </div>
+            <div class="leaderboard-metric"
+              style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-pure);">
+              92 units/mo
+            </div>
+          </div>
+
+          <!-- Rank 5: Zenith Smart Hub Pro -->
+          <div class="leaderboard-row">
+            <div class="leaderboard-rank">#05</div>
+            <div class="leaderboard-thumb">
+              <img src="images/products/gadget-zenithub.webp" alt="Zenith Smart Hub Pro Touch wall-mounted console"
+                width="60" height="60" loading="lazy">
+            </div>
+            <div class="leaderboard-info">
+              <h4>Zenith Smart Hub Pro Touch</h4>
+              <span>SKU: VLT-SH-001 • Smart Home • $289.00</span>
+            </div>
+            <div class="leaderboard-bar-box">
+              <div class="leaderboard-bar-bg">
+                <div class="leaderboard-bar-fill" style="width:58%;"></div>
+              </div>
+            </div>
+            <div class="leaderboard-metric"
+              style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--text-pure);">
+              210 units/mo
+            </div>
+          </div>
+
+          <!-- Rank 6: HyperDrive MagCharge -->
+          <div class="leaderboard-row">
+            <div class="leaderboard-rank">#06</div>
+            <div class="leaderboard-thumb">
+              <img src="images/products/gadget-hypercharge.webp"
+                alt="HyperDrive MagCharge 100W GaN fast charging module" width="60" height="60" loading="lazy">
+            </div>
+            <div class="leaderboard-info">
+              <h4>HyperDrive MagCharge 100W GaN</h4>
+              <span>SKU: VLT-AC-001 • Accessories • $89.00</span>
+            </div>
+            <div class="leaderboard-bar-box">
+              <div class="leaderboard-bar-bg">
+                <div class="leaderboard-bar-fill" style="width:94%;"></div>
+              </div>
+            </div>
+            <div class="leaderboard-metric"
+              style="text-align:right; font-family:var(--font-mono); font-weight:700; color:var(--volt);">
+              680 units/mo
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: TREND RADAR (RISING / FALLING GADGET CATEGORIES) -->
+    <section id="radar" style="border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">PREDICTIVE RADAR</div>
+          <h2>Hardware Market Shift Vectors</h2>
+          <p>Identify rising and decelerating electronics categories before they impact inventory holding costs.</p>
+        </div>
+
+        <div
+          style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items:center;">
+          <div>
+            <div
+              style="border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-line-hover); box-shadow:var(--shadow-elevated);">
+              <img src="images/ui/insights-radar-hero.webp"
+                alt="High-resolution telemetry radar screen analyzing device lifecycle shifts" width="800" height="500"
+                loading="lazy">
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:1.25rem;">
+            <!-- Rising Category Card -->
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-circuit-border">
+                <div class="tilt-card-content">
+                  <div style="display:flex; justify-content:space-between; width:100%; margin-bottom:0.75rem;">
+                    <span class="status-chip in-stock">RISING SURGE</span>
+                    <span style="font-family:var(--font-mono); color:var(--volt); font-weight:700;">+44% Velocity</span>
+                  </div>
+                  <h3 class="tilt-card-title">GaN Transparent Chargers & Hubs</h3>
+                  <p class="tilt-card-desc">High demand driven by USB-C 240W Power Delivery adoption across laptops and
+                    foldable smartphones.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rising Category Card 2 -->
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-signal-ring">
+                <div class="tilt-card-content">
+                  <div style="display:flex; justify-content:space-between; width:100%; margin-bottom:0.75rem;">
+                    <span class="status-chip in-stock">STRONG ADOPTION</span>
+                    <span style="font-family:var(--font-mono); color:var(--signal); font-weight:700;">+28%
+                      Velocity</span>
+                  </div>
+                  <h3 class="tilt-card-title">Continuous Biometric Smart Rings</h3>
+                  <p class="tilt-card-desc">Rapidly taking share from standalone fitness bands due to lightweight form
+                    factors and sleep apnea sensors.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cooling Category Card -->
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-laser-scan">
+                <div class="tilt-card-content">
+                  <div style="display:flex; justify-content:space-between; width:100%; margin-bottom:0.75rem;">
+                    <span class="status-chip out-stock">COOLING DEMAND</span>
+                    <span style="font-family:var(--font-mono); color:var(--flare); font-weight:700;">-14%
+                      Velocity</span>
+                  </div>
+                  <h3 class="tilt-card-title">Legacy Micro-USB & Single-Band Routers</h3>
+                  <p class="tilt-card-desc">Recommendation: Discount remaining stock lots and cease manufacturer
+                    purchase reorders immediately.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CASE STUDIES (3 TILT CARDS WITH BEFORE/AFTER METRICS) -->
+    <section id="case-studies" style="background: rgba(11, 16, 48, 0.4); border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">VERIFIED CASE STUDIES</div>
+          <h2>Proven Return on Investment</h2>
+          <p>Explore empirical operational metrics before and after implementing the VOLTARIS studio.</p>
+        </div>
+
+        <div class="case-studies-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+
+          <!-- Case 1: Nexus Retail -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1.25rem;">
+                  <img src="images/cases/case-nexuselectronics.webp"
+                    alt="Nexus Electronics modern omnichannel retail store floor" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <h3 class="tilt-card-title">Nexus Omnichannel Retail</h3>
+                <p class="tilt-card-desc">18 high-end smartphone stores in Chicago and New York experiencing inventory
+                  shrinkage and lost IMEI serials.</p>
+                <div class="case-metrics-grid">
+                  <div class="case-metric-col">
+                    <div class="case-metric-tag before">BEFORE VOLTARIS</div>
+                    <div class="case-metric-val before-val">4.8%</div>
+                    <div class="case-metric-lbl">Shrinkage</div>
+                  </div>
+                  <div class="case-metric-col">
+                    <div class="case-metric-tag after">WITH VOLTARIS</div>
+                    <div class="case-metric-val after-val">&lt; 0.1%</div>
+                    <div class="case-metric-lbl">Zero Loss</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 2: Quantum Repair Labs -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1.25rem;">
+                  <img src="images/cases/case-quantumrepair.webp"
+                    alt="Precision technician performing micro-soldering and warranty refurbishing" width="400"
+                    height="240" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <h3 class="tilt-card-title">Quantum Hardware Repair Labs</h3>
+                <p class="tilt-card-desc">National warranty servicing center handling 1,500+ laptop and motherboard RMA
+                  tickets each week.</p>
+                <div class="case-metrics-grid">
+                  <div class="case-metric-col">
+                    <div class="case-metric-tag before">BEFORE VOLTARIS</div>
+                    <div class="case-metric-val before-val">14-Day</div>
+                    <div class="case-metric-lbl">RMA Cycle</div>
+                  </div>
+                  <div class="case-metric-col">
+                    <div class="case-metric-tag after">WITH VOLTARIS</div>
+                    <div class="case-metric-val after-val">3.5-Day</div>
+                    <div class="case-metric-lbl">Turnaround</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 3: Volta Distribution -->
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1.25rem;">
+                  <img src="images/cases/case-voltadistrib.webp"
+                    alt="High-speed automated gadget distribution center fulfillment lines" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <h3 class="tilt-card-title">Volta Hardware Distribution</h3>
+                <p class="tilt-card-desc">Wholesale distributor supplying 250+ independent electronics retailers across
+                  North America.</p>
+                <div class="case-metrics-grid">
+                  <div class="case-metric-col">
+                    <div class="case-metric-tag before">BEFORE VOLTARIS</div>
+                    <div class="case-metric-val before-val">18%</div>
+                    <div class="case-metric-lbl">Stockout Rate</div>
+                  </div>
+                  <div class="case-metric-col">
+                    <div class="case-metric-tag after">WITH VOLTARIS</div>
+                    <div class="case-metric-val after-val">99.4%</div>
+                    <div class="case-metric-lbl">Fulfillment</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: REPORTS LIBRARY (DOWNLOADABLE WORKING SAMPLE REPORTS) -->
+    <section id="reports" style="border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">COMPLIANCE LEDGERS</div>
+          <h2>Sample Audit & Telemetry Reports</h2>
+          <p>Download pre-formatted operational reports generated directly from the VOLTARIS export bus.</p>
+        </div>
+
+        <div class="reports-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                </div>
+                <h3 class="tilt-card-title">Turnover & Margin Audit</h3>
+                <p class="tilt-card-desc">Itemized ledger of cost of goods, retail prices, shelf-aging velocity, and
+                  margin yield by SKU.</p>
+                <div style="margin-top:auto; width:100%; display:flex; gap:0.5rem; justify-content:center;">
+                  <button type="button" class="btn btn-volt btn-sm"
+                    onclick="alert('Exporting sample CSV audit...'); window.location.href='assets/data/products.json';">Download
+                    CSV</button>
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="window.print();">Print PDF</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge badge-hex">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <h3 class="tilt-card-title">IMEI Warranty Ledger</h3>
+                <p class="tilt-card-desc">Serialized list of devices nearing factory warranty expiration with diagnostic
+                  RMA codes.</p>
+                <div style="margin-top:auto; width:100%; display:flex; gap:0.5rem; justify-content:center;">
+                  <button type="button" class="btn btn-signal btn-sm"
+                    onclick="alert('Generating IMEI Ledger...'); window.location.href='assets/data/products.json';">Download
+                    CSV</button>
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="window.print();">Print PDF</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tilt-card-wrapper" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div class="card-icon-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                  </svg>
+                </div>
+                <h3 class="tilt-card-title">Warehouse Run Rate Brief</h3>
+                <p class="tilt-card-desc">Machine-learning forecast schedule for purchasing and replenishment managers.
+                </p>
+                <div style="margin-top:auto; width:100%; display:flex; gap:0.5rem; justify-content:center;">
+                  <button type="button" class="btn btn-volt btn-sm"
+                    onclick="alert('Exporting Run Rate Brief...'); window.location.href='assets/data/products.json';">Download
+                    CSV</button>
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="window.print();">Print PDF</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: BLOG / ARTICLES GRID (6 ARTICLES WITH LIVE SEARCH & UNIQUE IMAGES) -->
+    <section id="articles" style="background: rgba(11, 16, 48, 0.4); border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">ENGINEERING & STRATEGY</div>
+          <h2>Hardware Retail Analytics Knowledge</h2>
+          <p>Actionable operational playbooks written by consumer electronics engineers and inventory analysts.</p>
+
+          <!-- Live Search Input -->
+          <div style="max-width:440px; margin-inline:auto; margin-top:1.5rem;">
+            <input type="text" id="blogSearchInput" class="form-input" placeholder="Search operational playbooks..."
+              style="text-align:center;">
+          </div>
+        </div>
+
+        <div class="blog-grid articles-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+          <!-- Article 1 -->
+          <article class="tilt-card-wrapper blog-article-card" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem;">
+                  <img src="images/blog/blog-inventory-forecasting.webp"
+                    alt="Predictive algorithmic stock curves on dark analytics screen" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--volt); margin-bottom:0.4rem;">
+                  INVENTORY FORECASTING</div>
+                <h3 class="tilt-card-title" style="font-size:1.15rem;">Eliminating Stockouts on Flagship Phone Releases
+                </h3>
+                <p class="tilt-card-desc">How to deploy stochastic safety-stock models during autumn flagship phone
+                  launches.</p>
+                <div class="tilt-card-metric" style="font-size:0.75rem;">5 min read • Oct 2026</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="tilt-card-wrapper blog-article-card" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem;">
+                  <img src="images/blog/blog-imei-tracking.webp"
+                    alt="Microchip circuit trace with laser telemetry scanning" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--signal); margin-bottom:0.4rem;">
+                  DEVICE LIFECYCLE</div>
+                <h3 class="tilt-card-title" style="font-size:1.15rem;">The Architecture of End-to-End IMEI Tracking</h3>
+                <p class="tilt-card-desc">Why tracking TAC prefixes and serial checksums saves thousands in disputed
+                  manufacturer claims.</p>
+                <div class="tilt-card-metric" style="font-size:0.75rem;">7 min read • Oct 2026</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="tilt-card-wrapper blog-article-card" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem;">
+                  <img src="images/blog/blog-margin-optimization.webp"
+                    alt="Financial telemetry curves and gadget profitability metrics" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--plasma); margin-bottom:0.4rem;">
+                  MARGIN STRATEGY</div>
+                <h3 class="tilt-card-title" style="font-size:1.15rem;">Balancing Fast Accessories vs High-Ticket Laptops
+                </h3>
+                <p class="tilt-card-desc">Analyzing blended profit margins when bundling 58% margin GaN chargers with
+                  32% margin laptops.</p>
+                <div class="tilt-card-metric" style="font-size:0.75rem;">6 min read • Oct 2026</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="tilt-card-wrapper blog-article-card" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem;">
+                  <img src="images/blog/blog-gadget-depreciation.webp"
+                    alt="Gadget hardware lifecycle progression and valuation" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--amber); margin-bottom:0.4rem;">
+                  HARDWARE DEPRECIATION</div>
+                <h3 class="tilt-card-title" style="font-size:1.15rem;">Managing the Consumer Electronics Depreciation
+                  Curve</h3>
+                <p class="tilt-card-desc">How rapidly older model valuations decline once next-gen chipsets and trade-in
+                  programs roll out.</p>
+                <div class="tilt-card-metric" style="font-size:0.75rem;">4 min read • Oct 2026</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="tilt-card-wrapper blog-article-card" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem;">
+                  <img src="images/blog/blog-repair-lifecycle.webp"
+                    alt="Automated precision hardware repair and component diagnostics" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--flare); margin-bottom:0.4rem;">
+                  REPAIR BENCH OPERATIONS</div>
+                <h3 class="tilt-card-title" style="font-size:1.15rem;">Refurbishing Grade A Devices at Scale</h3>
+                <p class="tilt-card-desc">Standardizing microscopic inspection, battery health verification, and
+                  warranty certification.</p>
+                <div class="tilt-card-metric" style="font-size:0.75rem;">8 min read • Oct 2026</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="tilt-card-wrapper blog-article-card" data-tilt>
+            <div class="tilt-card">
+              <div class="tilt-card-content">
+                <div
+                  style="width:100%; height:180px; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem;">
+                  <img src="images/blog/blog-supply-chain-analytics.webp"
+                    alt="Global electronics distribution logistics and routing telemetry" width="400" height="240"
+                    style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--volt); margin-bottom:0.4rem;">
+                  SUPPLY CHAIN ARCHITECTURE</div>
+                <h3 class="tilt-card-title" style="font-size:1.15rem;">The Multi-Warehouse Electronics Fulfillment
+                  Blueprint</h3>
+                <p class="tilt-card-desc">Routing incoming freight lots to regional hubs closest to forecasted customer
+                  demand hotspots.</p>
+                <div class="tilt-card-metric" style="font-size:0.75rem;">9 min read • Oct 2026</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: INDUSTRY GLOSSARY ACCORDION & NEWSLETTER CTA -->
+    <section id="glossary" style="border-top: 1px solid var(--border-line);">
+      <div class="container" style="max-width:840px; margin-inline:auto;">
+        <div class="section-header">
+          <div class="section-tag">HARDWARE TAXONOMY</div>
+          <h2>Electronics Operations Glossary</h2>
+          <p>Key standards, identifiers, and telemetry metrics utilized across the VOLTARIS platform.</p>
+        </div>
+
+        <div class="accordion-item active">
+          <button class="accordion-header" type="button">
+            <span>IMEI (International Mobile Equipment Identity)</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="accordion-body">
+            <p>A globally unique 15-digit number allocated to cellular devices. The first 8 digits (TAC - Type
+              Allocation Code) designate the exact hardware model and manufacturer, followed by the serial sequence and
+              Luhn algorithm check digit.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>RMA (Return Merchandise Authorization)</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="accordion-body">
+            <p>The formal transactional approval required to dispatch defective, dead-on-arrival (DOA), or repair-bound
+              electronics back to wholesale suppliers and OEM manufacturers for credit or replacement.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Sell-Through Velocity</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="accordion-body">
+            <p>The percentage of received inventory sold to end-users within a predetermined interval (typically 30 or
+              60 days). Essential for anticipating obsolete gadget depreciation before successor models enter the
+              market.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Matter & Zigbee Ecosystems</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="accordion-body">
+            <p>Interoperable smart home networking standards connecting sensors, lighting, and hubs across Apple Home,
+              Google Home, and Amazon Alexa ecosystems without proprietary gateway lock-in.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="voltaris-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/brand/logo.svg" alt="VOLTARIS" width="180" height="42">
+          <p>Every gadget. Every number. Under control. The premier operational studio for electronics retailers, repair
+            labs, and gadget distributors.</p>
+          <div class="footer-socials" aria-label="Social Media Links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (formerly Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.067 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <ul class="footer-col-links">
+            <li><a href="platform.html#features">SKU Management</a></li>
+            <li><a href="platform.html#lifecycle">IMEI & Warranty</a></li>
+            <li><a href="platform.html#pricing">Pricing Tiers</a></li>
+            <li><a href="platform.html#integrations">Integrations</a></li>
+            <li><a href="platform.html#security">Security & RBAC</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Insights</div>
+          <ul class="footer-col-links">
+            <li><a href="insights.html#studio">Interactive Studio</a></li>
+            <li><a href="insights.html#leaderboard">Top Gadgets</a></li>
+            <li><a href="insights.html#radar">Trend Radar</a></li>
+            <li><a href="insights.html#case-studies">Case Studies</a></li>
+            <li><a href="insights.html#reports">Sample Audits</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Studio</div>
+          <ul class="footer-col-links">
+            <li><a href="contact.html#about">About Story</a></li>
+            <li><a href="contact.html#team">Leadership</a></li>
+            <li><a href="contact.html#scheduler">Book a Demo</a></li>
+            <li><a href="login.html">Demo Accounts</a></li>
+            <li><a href="dashboard.html">App Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Stay Synchronized</div>
+          <p style="font-size:var(--fs-xs); color:var(--muted); margin-bottom:1rem;">Receive quarterly electronics
+            supply-chain forecasts and depreciation telemetry.</p>
+          <form style="display:flex; gap:0.5rem;"
+            onsubmit="event.preventDefault(); alert('Subscribed to VOLTARIS Telemetry Brief.');">
+            <input type="email" placeholder="engineer@hardware.com" required
+              style="background:rgba(18,26,66,0.8); border:1px solid var(--border-line); border-radius:var(--radius-sm); padding:0.5rem 0.75rem; color:#fff; font-size:0.8125rem; flex:1;">
+            <button type="submit" class="btn btn-volt btn-sm">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 VOLTARIS Technologies Inc. All rights reserved. Zero-CDN architecture.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-up-btn" id="scrollUpBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script src="assets/js/vendor/chart.umd.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>

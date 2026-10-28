@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — VOLTARIS</title>
+  <meta name="description" content="VOLTARIS privacy policy detailing zero-CDN architecture, localized database storage, and cryptographic telemetry standards.">
+  <link rel="canonical" href="https://voltaris.studio/privacy.html">
+
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR (STRICT: ONLY 4 LINKS: Home, Platform, Insights, Contact) -->
+  <header class="site-header">
+    <nav class="voltaris-nav" aria-label="Main Navigation">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand" aria-label="Voltaris Home">
+          <img src="images/brand/logo.svg" alt="VOLTARIS Logo" class="nav-logo-img" width="180" height="42">
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="platform.html" class="nav-link">Platform</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="dashboard.html" class="btn btn-volt btn-sm">Dashboard</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="padding-block: 4rem; max-width: 800px;">
+    <div class="section-tag">LEGAL COMPLIANCE</div>
+    <h1 style="margin-bottom: 1.5rem; font-size: var(--fs-2xl);">Privacy Policy</h1>
+    <p style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--volt); margin-bottom: 2.5rem;">EFFECTIVE: OCTOBER 2026 // REVISION 3.4</p>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem; color: var(--text); line-height: 1.7;">
+      <section>
+        <h2 style="font-size: var(--fs-lg); margin-bottom: 0.75rem;">1. Zero-CDN Operational Model</h2>
+        <p>VOLTARIS is engineered to operate without external content delivery networks (CDNs). All script assets, fonts, telemetry calculation engines, and styling tokens are hosted directly from your licensed cluster or self-hosted container instance. Your device serials and financial metrics are never routed through third-party advertising or analytics networks.</p>
+      </section>
+
+      <section>
+        <h2 style="font-size: var(--fs-lg); margin-bottom: 0.75rem;">2. Telemetry & Serial Number Data Handling</h2>
+        <p>We process 15-digit IMEI sequences, serial numbers, MAC addresses, and barcode scans strictly for hardware inventory reconciliation, warranty claim tracking, and replenishment forecasting. We do not sell, broker, or aggregate serialized device histories across independent tenant studios.</p>
+      </section>
+
+      <section>
+        <h2 style="font-size: var(--fs-lg); margin-bottom: 0.75rem;">3. Cryptographic Storage & Access Governance</h2>
+        <p>All database records are encrypted at rest using AES-256. Transport layer communications utilize TLS 1.3 with mandatory forward secrecy. Role-based access control (RBAC) ensures only authorized roles within your organization can decrypt and export financial cost figures.</p>
+      </section>
+
+      <section>
+        <h2 style="font-size: var(--fs-lg); margin-bottom: 0.75rem;">4. Inquiries & Data Protection Officer</h2>
+        <p>Direct inquiries regarding SOC 2 audit packages or GDPR device deletion requests to: <span style="font-family:var(--font-mono); color:var(--signal);">privacy@voltaris.demo</span>.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="voltaris-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 VOLTARIS Technologies Inc. All rights reserved. Zero-CDN architecture.</div>
+      <div class="footer-legal-links">
+        <a href="privacy.html" style="color:var(--volt);">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-up-btn" id="scrollUpBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

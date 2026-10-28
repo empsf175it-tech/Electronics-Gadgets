@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Studio Account — VOLTARIS</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <div class="auth-page-wrapper">
+    
+    <!-- Centered Glass Form Box -->
+    <div class="auth-form-card">
+      
+      <!-- Top Center Brand Logo & Name -->
+      <div class="auth-brand-header">
+        <a href="index.html" class="auth-brand-logo" aria-label="Voltaris Home">
+          <img src="images/brand/logo.svg" alt="VOLTARIS Logo" class="nav-logo-img" width="190" height="44">
+        </a>
+        <h1 style="font-size:var(--fs-xl); margin-bottom:0.5rem;">Create Account</h1>
+        <p style="font-size:var(--fs-sm); color:var(--muted);">Start your 30-day full feature trial.</p>
+      </div>
+
+      <form id="signupForm" onsubmit="event.preventDefault(); alert('Trial account initialized! Logging you in as Studio Administrator...'); window.location.href='dashboard.html';">
+        <div class="form-group">
+          <label for="signupName" class="form-label">Full Name</label>
+          <input type="text" id="signupName" class="form-input" placeholder="e.g. Ronald Vance" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail" class="form-label">Work Email</label>
+          <input type="email" id="signupEmail" class="form-input" placeholder="r.vance@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupCompany" class="form-label">Company Name</label>
+          <input type="text" id="signupCompany" class="form-input" placeholder="Nexus Electronics" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword" class="form-label">Master Password</label>
+          <input type="password" id="signupPassword" class="form-input" placeholder="Minimum 8 characters" required>
+        </div>
+
+        <div style="margin-bottom:1.5rem; font-size:0.75rem; color:var(--muted);">
+          By clicking "Deploy Studio Node" you agree to our <a href="terms.html" class="auth-link-signal">Terms</a> and <a href="privacy.html" class="auth-link-signal">Privacy Policy</a>.
+        </div>
+
+        <button type="submit" class="btn btn-volt btn-lg" style="width:100%;">Deploy Studio Node</button>
+      </form>
+
+      <div class="auth-switch-prompt">
+        Already provisioned? <a href="login.html" class="auth-link-volt">Sign In Instead</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

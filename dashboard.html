@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operational Studio Dashboard — VOLTARIS</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+  <!-- Print Header for PDF Generation -->
+  <div class="print-header"></div>
+
+  <!-- Backdrop for Tablet/Mobile Sidebar Drawer -->
+  <div class="dash-sidebar-backdrop" id="dashSidebarBackdrop"></div>
+
+  <div class="dash-layout">
+    
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="dash-sidebar" id="dashSidebar" aria-label="Sidebar Navigation">
+      <div>
+        <div class="sidebar-header-row">
+          <a href="index.html" class="sidebar-brand">
+            <img src="images/brand/logo.svg" alt="VOLTARIS" class="sidebar-logo" width="160" height="36">
+          </a>
+          <button type="button" class="sidebar-close-btn" id="dashSidebarClose" aria-label="Close Dashboard Menu">✕</button>
+        </div>
+
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item active">
+            <a href="#overview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#inventory">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <span>Inventory</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#analytics">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <span>Analytics</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#reports">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#users">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Users &amp; Access</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#settings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- User Profile & Logout -->
+      <div class="sidebar-footer">
+        <div class="user-profile-badge">
+          <div class="user-avatar">RV</div>
+          <div class="user-meta">
+            <span class="user-name">Dr. Ronald Vance</span>
+            <span class="user-role-tag">Admin</span>
+          </div>
+        </div>
+        <div class="sidebar-logout-container">
+          <button type="button" id="logoutBtn" class="sidebar-logout-btn" aria-label="Logout of studio session">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="dash-main">
+      
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button class="dash-hamburger-btn" id="dashSidebarToggle" aria-label="Toggle Dashboard Menu" type="button" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="view-breadcrumb">
+            <span>STUDIO</span>
+            <span>/</span>
+            <span class="current" id="breadcrumbCurrent">OVERVIEW</span>
+          </div>
+          <div class="mock-live-pill" style="font-size:0.7rem;">BUS SYNCED 14ms</div>
+        </div>
+
+        <div class="topbar-right">
+          <select class="warehouse-select" aria-label="Warehouse Location">
+            <option value="All">All Warehouses</option>
+            <option value="WH-North">WH-North (Chicago)</option>
+            <option value="WH-Central">WH-Central (Seattle)</option>
+            <option value="WH-East">WH-East (New York)</option>
+            <option value="WH-South">WH-South (Miami)</option>
+          </select>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="dash-content">
+
+        <!-- VIEW 1: OVERVIEW -->
+        <section class="dash-view active" id="view-overview">
+          
+          <!-- KPI Row (3D Tilt enabled with Center-aligned metrics) -->
+          <div class="kpi-row">
+            
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-circuit-border kpi-card">
+                <div class="tilt-card-content">
+                  <div class="card-icon-badge" style="width:44px; height:44px; margin-bottom:0.5rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                  </div>
+                  <div class="kpi-title">Total Active Stock</div>
+                  <div class="kpi-value" id="kpiTotalStock">3,450</div>
+                  <div class="kpi-delta pos">+8.4% intake</div>
+                  <canvas id="sparkline1" width="120" height="24" style="margin-top:0.5rem;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-signal-ring kpi-card">
+                <div class="tilt-card-content">
+                  <div class="card-icon-badge badge-hex" style="width:44px; height:44px; margin-bottom:0.5rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  </div>
+                  <div class="kpi-title">Inventory Valuation</div>
+                  <div class="kpi-value" id="kpiValuation">$1,894.2k</div>
+                  <div class="kpi-delta pos">+12.2% margin yield</div>
+                  <canvas id="sparkline2" width="120" height="24" style="margin-top:0.5rem;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-blinking-led kpi-card">
+                <div class="tilt-card-content">
+                  <div class="card-icon-badge" style="width:44px; height:44px; margin-bottom:0.5rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                  <div class="kpi-title">Low Stock SKUs</div>
+                  <div class="kpi-value" id="kpiLowStockCount" style="color:var(--amber);">11</div>
+                  <div class="kpi-delta neg">Action required</div>
+                  <canvas id="sparkline3" width="120" height="24" style="margin-top:0.5rem;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="tilt-card-wrapper" data-tilt>
+              <div class="tilt-card anim-equalizer-bars kpi-card">
+                <div class="tilt-card-content">
+                  <div class="card-icon-badge badge-hex" style="width:44px; height:44px; margin-bottom:0.5rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div class="kpi-title">Warranty RMA Health</div>
+                  <div class="kpi-value" style="color:var(--volt);">99.4%</div>
+                  <div class="kpi-delta pos">Normal parameters</div>
+                  <canvas id="sparkline4" width="120" height="24" style="margin-top:0.5rem;"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Charts 2-Column Grid -->
+          <div class="charts-grid-2col">
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-title">Gross Revenue Trajectory (30-Day Velocity)</div>
+                <span class="status-chip in-stock">HOURLY RECONCILED</span>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="dashRevenueChart"></canvas>
+              </div>
+            </div>
+
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-title">Category Distribution</div>
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--signal);">65 GADGETS</span>
+              </div>
+              <div class="chart-wrapper">
+                <canvas id="dashCategoryDonut"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Widgets: Low Stock Alerts + Live Device Health Gauge -->
+          <div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem;">
+            
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-title">Critical Low-Stock Reorder Triggers</div>
+                <a href="#inventory" style="font-size:0.75rem; color:var(--signal);">View Inventory Table →</a>
+              </div>
+              <div id="lowStockAlertsList">
+                <!-- Dynamically populated from products.json -->
+              </div>
+            </div>
+
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-title">Hardware Fleet Health</div>
+                <span class="status-chip in-stock">ALL STATIONS</span>
+              </div>
+              <div class="health-gauge-box">
+                <svg class="gauge-svg" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(34, 229, 255, 0.15)" stroke-width="8"/>
+                  <circle id="healthGaugeCircle" cx="50" cy="50" r="45" fill="none" stroke="#C6FF3D" stroke-width="8" stroke-dasharray="282.7" stroke-dashoffset="15" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+                </svg>
+                <div class="gauge-metric" id="healthGaugeValue">94.8%</div>
+                <p style="font-size:0.75rem; color:var(--muted); max-width:24ch;">Operational readiness index across battery states & RMA tickets.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- VIEW 2: INVENTORY -->
+        <section class="dash-view" id="view-inventory">
+          
+          <div class="table-toolbar">
+            <div class="table-toolbar-filters">
+              <div class="search-box-wrap">
+                <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="inventorySearch" class="form-input" placeholder="Search SKU, name, or IMEI...">
+              </div>
+
+              <select id="inventoryCategoryFilter" class="form-select">
+                <option value="All">All Categories</option>
+                <option value="Phones">Phones</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Wearables">Wearables</option>
+                <option value="Audio">Audio</option>
+                <option value="Smart Home">Smart Home</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+
+              <select id="inventoryWarehouseFilter" class="form-select">
+                <option value="All">All Warehouses</option>
+                <option value="WH-North">WH-North</option>
+                <option value="WH-Central">WH-Central</option>
+                <option value="WH-East">WH-East</option>
+                <option value="WH-South">WH-South</option>
+              </select>
+            </div>
+
+            <div class="table-toolbar-actions">
+              <button type="button" id="openAddProductModal" class="btn btn-volt btn-sm">+ Add Gadget</button>
+              <button type="button" id="exportInventoryCSV" class="btn btn-ghost btn-sm btn-export-action">Export CSV</button>
+              <button type="button" id="exportInventoryExcel" class="btn btn-ghost btn-sm btn-export-action">Export Excel</button>
+              <button type="button" id="exportInventoryPDF" class="btn btn-ghost btn-sm btn-export-action">Print PDF</button>
+            </div>
+          </div>
+
+          <!-- Inventory Data Table -->
+          <div class="data-table-card">
+            <div class="data-table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th style="width:40px;"><input type="checkbox" id="selectAllProducts"></th>
+                    <th>SKU</th>
+                    <th>Device Name</th>
+                    <th>Category</th>
+                    <th>In Stock</th>
+                    <th>Retail Price</th>
+                    <th>Gross Margin</th>
+                    <th>Status</th>
+                    <th style="text-align:center; min-width:130px; width:130px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventoryTableBody">
+                  <!-- Dynamically rendered by dashboard.js from products.json -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination Bar -->
+            <div class="table-pagination">
+              <div id="inventoryPageInfo">Page 1 of 7 (65 devices)</div>
+              <div class="page-btn-group">
+                <button type="button" id="prevPageBtn" class="btn btn-ghost btn-sm">Previous</button>
+                <button type="button" id="nextPageBtn" class="btn btn-ghost btn-sm">Next</button>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- VIEW 3: ANALYTICS -->
+        <section class="dash-view" id="view-analytics">
+          <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+            <div class="section-tag">MULTI-COHORT TELEMETRY</div>
+            <h2>Comparative Performance Modeling</h2>
+            <p>Compare this period's device sell-through rates against historical run rates.</p>
+          </div>
+
+          <div class="widget-card" style="margin-bottom:2rem;">
+            <div class="widget-header">
+              <div class="widget-title">Sell-Through Comparison (Current Period vs Previous Period)</div>
+              <span class="status-chip in-stock">DELTA: +16.4% OPTIMAL</span>
+            </div>
+            <div class="chart-wrapper" style="height:340px;">
+              <canvas id="analyticsCompareChart"></canvas>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem;">
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-title">Turnover Velocity by Warehouse</div>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--muted); line-height:1.6;">
+                • WH-North (Chicago): 18.2 Days average turnover (Fastest)<br>
+                • WH-Central (Seattle): 22.4 Days average turnover<br>
+                • WH-East (New York): 19.8 Days average turnover<br>
+                • WH-South (Miami): 24.1 Days average turnover
+              </p>
+            </div>
+
+            <div class="widget-card">
+              <div class="widget-header">
+                <div class="widget-title">RMA Return Rate by Category</div>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--muted); line-height:1.6;">
+                • Phones: 1.4% (Industry avg: 3.8%)<br>
+                • Laptops: 1.1% (Industry avg: 2.9%)<br>
+                • Wearables: 0.8% (Industry avg: 2.1%)<br>
+                • Audio: 1.2% (Industry avg: 2.5%)<br>
+                • Accessories: 0.3% (Industry avg: 1.2%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 4: REPORTS & SCHEDULED EXPORTS -->
+        <section class="dash-view" id="view-reports">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <div class="section-tag">COMPLIANCE LEDGERS</div>
+              <h2>Audit Report Templates</h2>
+              <p>Itemized regulatory, financial, and warehouse reports ready for instant dispatch.</p>
+            </div>
+            <div style="display:flex; gap:0.75rem;">
+              <button type="button" id="openScheduleModalBtn" class="btn btn-signal btn-sm">Schedule Automation</button>
+              <button type="button" id="exportAllReportsBtn" class="btn btn-volt btn-sm btn-export-action">Export Complete Audit</button>
+            </div>
+          </div>
+
+          <div class="reports-grid">
+            <div class="report-template-card">
+              <div>
+                <span class="status-chip in-stock" style="margin-bottom:0.75rem;">FINANCIAL</span>
+                <h3 style="font-size:var(--fs-base); margin-bottom:0.5rem;">Quarterly Gadget Margin Audit</h3>
+                <p style="font-size:var(--fs-xs); color:var(--muted); line-height:1.6; margin-bottom:1.25rem;">
+                  Full itemized ledger of cost of goods, wholesale discounts, and net retail margin per SKU.
+                </p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-line); padding-top:1rem;">
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);">CSV • 2.4 MB</span>
+                <button type="button" class="btn btn-ghost btn-sm btn-export-action" onclick="alert('Exporting quarterly margin audit...');">Download</button>
+              </div>
+            </div>
+
+            <div class="report-template-card">
+              <div>
+                <span class="status-chip in-stock" style="margin-bottom:0.75rem;">OPERATIONS</span>
+                <h3 style="font-size:var(--fs-base); margin-bottom:0.5rem;">IMEI &amp; Warranty Expiry Ledger</h3>
+                <p style="font-size:var(--fs-xs); color:var(--muted); line-height:1.6; margin-bottom:1.25rem;">
+                  Serialized devices approaching 30-day RMA manufacturer return cutoffs with serial barcodes.
+                </p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-line); padding-top:1rem;">
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);">CSV • 1.8 MB</span>
+                <button type="button" class="btn btn-ghost btn-sm btn-export-action" onclick="alert('Exporting IMEI warranty ledger...');">Download</button>
+              </div>
+            </div>
+
+            <div class="report-template-card">
+              <div>
+                <span class="status-chip in-stock" style="margin-bottom:0.75rem;">LOGISTICS</span>
+                <h3 style="font-size:var(--fs-base); margin-bottom:0.5rem;">Warehouse Stock Replenishment</h3>
+                <p style="font-size:var(--fs-xs); color:var(--muted); line-height:1.6; margin-bottom:1.25rem;">
+                  Predictive purchase order schedule calculated from 30-day run rate velocities.
+                </p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-line); padding-top:1rem;">
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);">EXCEL • 3.1 MB</span>
+                <button type="button" class="btn btn-ghost btn-sm btn-export-action" onclick="alert('Exporting warehouse schedule...');">Download</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 5: USERS & RBAC MATRIX -->
+        <section class="dash-view" id="view-users">
+          <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+            <div class="section-tag">IDENTITY &amp; ACCESS CONTROL</div>
+            <h2>User Management &amp; Role Permissions Matrix</h2>
+            <p>Admin accounts have real-time toggle power over operational permissions.</p>
+          </div>
+
+          <!-- Seeded Users Table -->
+          <div class="data-table-card" style="margin-bottom:2.5rem;">
+            <div class="data-table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th style="text-align:center;">Role</th>
+                    <th>Assigned Location</th>
+                    <th>Last Active</th>
+                    <th style="text-align:center;">MFA Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-family:var(--font-mono); color:var(--volt);">USR-101</td>
+                    <td style="font-weight:700;">Dr. Ronald Vance</td>
+                    <td>admin@voltaris.demo</td>
+                    <td style="text-align:center;"><span class="status-chip in-stock">Admin</span></td>
+                    <td>HQ - Austin, TX</td>
+                    <td>Just now</td>
+                    <td style="text-align:center;"><span class="mfa-cell-wrap"><span class="perm-pill allowed">✓</span> Enforced</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:var(--font-mono); color:var(--signal);">USR-102</td>
+                    <td style="font-weight:700;">Elena Rostova</td>
+                    <td>manager@voltaris.demo</td>
+                    <td style="text-align:center;"><span class="status-chip in-stock">Manager</span></td>
+                    <td>WH-North - Chicago</td>
+                    <td>14 mins ago</td>
+                    <td style="text-align:center;"><span class="mfa-cell-wrap"><span class="perm-pill allowed">✓</span> Enforced</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:var(--font-mono); color:var(--plasma);">USR-103</td>
+                    <td style="font-weight:700;">Kaito Tanaka</td>
+                    <td>analyst@voltaris.demo</td>
+                    <td style="text-align:center;"><span class="status-chip in-stock">Analyst</span></td>
+                    <td>WH-Central - Seattle</td>
+                    <td>1 hour ago</td>
+                    <td style="text-align:center;"><span class="mfa-cell-wrap"><span class="perm-pill allowed">✓</span> Enforced</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:var(--font-mono); color:var(--amber);">USR-104</td>
+                    <td style="font-weight:700;">Sophia Morales</td>
+                    <td>viewer@voltaris.demo</td>
+                    <td style="text-align:center;"><span class="status-chip low-stock">Viewer</span></td>
+                    <td>Studio South - Miami</td>
+                    <td>3 hours ago</td>
+                    <td style="text-align:center;"><span class="mfa-cell-wrap"><span class="perm-pill denied">✕</span> Disabled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- RBAC Permission Matrix (Working Toggle Switches) -->
+          <div class="rbac-manager-card">
+            <h3 style="font-size:var(--fs-base); margin-bottom:1rem;">Role Permissions Toggle Matrix</h3>
+            <p style="font-size:var(--fs-xs); color:var(--muted); margin-bottom:1.5rem;">
+              Toggling permissions here immediately enforces restrictions across the application shell.
+            </p>
+
+            <div class="rbac-table-container">
+              <table class="rbac-table">
+                <thead>
+                  <tr>
+                    <th>Capability</th>
+                    <th>Admin</th>
+                    <th>Manager</th>
+                    <th>Analyst</th>
+                    <th>Viewer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Modify / Add Hardware Inventory</td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Admin" data-perm="manageInventory"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Manager" data-perm="manageInventory"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Analyst" data-perm="manageInventory"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Viewer" data-perm="manageInventory"><span class="slider"></span></label></td>
+                  </tr>
+                  <tr>
+                    <td>Delete SKUs &amp; Permanent Wipe</td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Admin" data-perm="deleteInventory"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Manager" data-perm="deleteInventory"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Analyst" data-perm="deleteInventory"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Viewer" data-perm="deleteInventory"><span class="slider"></span></label></td>
+                  </tr>
+                  <tr>
+                    <td>Export CSV &amp; Excel Reports</td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Admin" data-perm="exportData"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Manager" data-perm="exportData"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Analyst" data-perm="exportData"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Viewer" data-perm="exportData"><span class="slider"></span></label></td>
+                  </tr>
+                  <tr>
+                    <td>Edit Role Permissions Matrix</td>
+                    <td><label class="switch"><input type="checkbox" checked class="rbac-perm-switch" data-role="Admin" data-perm="manageUsers"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Manager" data-perm="manageUsers"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Analyst" data-perm="manageUsers"><span class="slider"></span></label></td>
+                    <td><label class="switch"><input type="checkbox" class="rbac-perm-switch" data-role="Viewer" data-perm="manageUsers"><span class="slider"></span></label></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 6: SETTINGS -->
+        <section class="dash-view" id="view-settings">
+          <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+            <div class="section-tag">CONFIGURATION</div>
+            <h2>Studio Station Settings</h2>
+            <p>Manage local node encryption parameters, API tokens, and notification dispatch routes.</p>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:2rem;">
+            
+            <div class="widget-card">
+              <h3 style="font-size:var(--fs-base); margin-bottom:1rem;">Production API Telemetry Token</h3>
+              <p style="font-size:var(--fs-xs); color:var(--muted); margin-bottom:1rem;">Use this bearer key to interface warehouse barcode guns and automated ERP hooks.</p>
+              
+              <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+                <input type="password" id="apiKeyField" class="form-input" value="vlt_live_99f28a0114b7e923dc4a" readonly style="font-family:var(--font-mono); font-size:0.8125rem;">
+                <button type="button" id="revealApiKeyBtn" class="btn btn-ghost btn-sm">Reveal</button>
+              </div>
+
+              <div style="font-size:0.75rem; color:var(--volt); font-family:var(--font-mono);">• Rate limit: 50,000 requests/minute (Internal Bus)</div>
+            </div>
+
+            <div class="widget-card">
+              <h3 style="font-size:var(--fs-base); margin-bottom:1rem;">System Notifications</h3>
+              <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:var(--fs-sm);">
+                <label style="display:flex; align-items:center; gap:0.6rem;">
+                  <input type="checkbox" checked style="accent-color:var(--volt);"> Critical stockout alerts (&lt; 15 units remaining)
+                </label>
+                <label style="display:flex; align-items:center; gap:0.6rem;">
+                  <input type="checkbox" checked style="accent-color:var(--volt);"> RMA warranty expiration within 7 days
+                </label>
+                <label style="display:flex; align-items:center; gap:0.6rem;">
+                  <input type="checkbox" checked style="accent-color:var(--volt);"> Daily morning stock snapshot email (06:00 UTC)
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Tab Bar -->
+  <nav class="mobile-dash-bottombar" aria-label="Mobile Dashboard Navigation">
+    <a href="#overview" class="bottom-tab-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Overview</span>
+    </a>
+    <a href="#inventory" class="bottom-tab-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      <span>Inventory</span>
+    </a>
+    <a href="#analytics" class="bottom-tab-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span>Analytics</span>
+    </a>
+    <a href="#reports" class="bottom-tab-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+      <span>Reports</span>
+    </a>
+    <a href="#users" class="bottom-tab-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg>
+      <span>Users</span>
+    </a>
+  </nav>
+
+  <!-- Add / Edit Product Modal -->
+  <div class="modal-overlay" id="productFormModal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeProductModal" type="button">✕</button>
+      <h3 id="productModalTitle" style="font-size:var(--fs-lg); margin-bottom:1.25rem;">Add New Electronics Gadget</h3>
+      
+      <form id="productCrudForm">
+        <div class="form-group">
+          <label for="inputGadgetName" class="form-label">Gadget Name</label>
+          <input type="text" id="inputGadgetName" class="form-input" placeholder="e.g. Aura X3 Smartwatch" required>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label for="inputGadgetSKU" class="form-label">SKU Identifier</label>
+            <input type="text" id="inputGadgetSKU" class="form-input" placeholder="VLT-WB-099">
+          </div>
+
+          <div class="form-group">
+            <label for="inputGadgetCategory" class="form-label">Category</label>
+            <select id="inputGadgetCategory" class="form-select">
+              <option value="Phones">Phones</option>
+              <option value="Laptops">Laptops</option>
+              <option value="Wearables">Wearables</option>
+              <option value="Audio">Audio</option>
+              <option value="Smart Home">Smart Home</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label for="inputGadgetPrice" class="form-label">Retail ($)</label>
+            <input type="number" step="0.01" id="inputGadgetPrice" class="form-input" placeholder="499.00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="inputGadgetCost" class="form-label">Cost ($)</label>
+            <input type="number" step="0.01" id="inputGadgetCost" class="form-input" placeholder="280.00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="inputGadgetStock" class="form-label">In Stock Units</label>
+            <input type="number" id="inputGadgetStock" class="form-input" placeholder="45" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputGadgetWarehouse" class="form-label">Warehouse Allocation</label>
+          <select id="inputGadgetWarehouse" class="form-select">
+            <option value="WH-North">WH-North (Chicago)</option>
+            <option value="WH-Central">WH-Central (Seattle)</option>
+            <option value="WH-East">WH-East (New York)</option>
+            <option value="WH-South">WH-South (Miami)</option>
+          </select>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
+          <button type="button" class="btn btn-ghost" onclick="document.getElementById('productFormModal').classList.remove('active');">Cancel</button>
+          <button type="submit" class="btn btn-volt">Save Gadget</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Schedule Report Modal -->
+  <div class="modal-overlay" id="scheduleReportModal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeScheduleModal" type="button">✕</button>
+      <h3 style="font-size:var(--fs-lg); margin-bottom:1.25rem;">Automate Recurring Report Delivery</h3>
+      
+      <form id="scheduleReportForm">
+        <div class="form-group">
+          <label class="form-label">Report Type</label>
+          <select class="form-select">
+            <option>Stock Velocity &amp; Replenishment</option>
+            <option>IMEI Warranty Expiry Audit</option>
+            <option>Gross Margin Breakdown by SKU</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Frequency</label>
+          <select class="form-select">
+            <option>Daily at 08:00 UTC</option>
+            <option>Every Monday at 06:00 UTC</option>
+            <option>1st of Every Month</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Recipient Distribution List</label>
+          <input type="text" class="form-input" placeholder="inventory-leads@company.com" required>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
+          <button type="button" class="btn btn-ghost" onclick="document.getElementById('scheduleReportModal').classList.remove('active');">Cancel</button>
+          <button type="submit" class="btn btn-signal">Register Cron Job</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-up-btn" id="scrollUpBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- Local Chart.js Vendor Script (No CDN) -->
+  <script src="assets/js/vendor/chart.umd.js"></script>
+
+  <!-- Dashboard SPA Controller -->
+  <script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>

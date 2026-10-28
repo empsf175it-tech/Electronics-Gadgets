@@ -1,0 +1,94 @@
+/* ==========================================================================
+   VOLTARIS DESIGN TOKENS
+   Theme: Circuit-Noir Neon
+   ========================================================================== */
+
+:root {
+  /* Color Palette — Circuit-Noir Neon (Dark Theme Default) */
+  --bg-void: #050816;
+  --bg-board: #0B1030;
+  --bg-card: rgba(18, 26, 66, 0.55);
+  --bg-card-hover: rgba(24, 35, 88, 0.75);
+  --bg-glass: rgba(11, 16, 48, 0.65);
+  
+  /* Primary & Accent Signals */
+  --volt: #C6FF3D;          /* Primary Accent / CTAs (Electric Lime) */
+  --volt-dim: rgba(198, 255, 61, 0.15);
+  --volt-glow: 0 0 24px rgba(198, 255, 61, 0.45);
+  
+  --signal: #22E5FF;        /* Secondary Accent / Data / Links (Cyan) */
+  --signal-dim: rgba(34, 229, 255, 0.15);
+  --signal-glow: 0 0 24px rgba(34, 229, 255, 0.45);
+  
+  --plasma: #8B5CFF;        /* Highlights & Gradients (Deep Violet) */
+  --plasma-dim: rgba(139, 92, 255, 0.15);
+  
+  --flare: #FF3D8B;         /* Alerts & Negative Deltas (Hot Pink) */
+  --flare-dim: rgba(255, 61, 139, 0.15);
+  
+  --amber: #FFB020;         /* Warnings & Low Stock */
+  --amber-dim: rgba(255, 176, 32, 0.15);
+  
+  /* Text & Surfaces */
+  --text: #EAF0FF;
+  --text-pure: #FFFFFF;
+  --muted: #8D9AC4;
+  --muted-light: #B4BFDF;
+  --border-line: rgba(34, 229, 255, 0.16);
+  --border-line-hover: rgba(198, 255, 61, 0.4);
+  --border-card: rgba(139, 92, 255, 0.22);
+  
+  /* Gradients */
+  --grad-volt-signal: linear-gradient(135deg, #C6FF3D 0%, #22E5FF 100%);
+  --grad-plasma-signal: linear-gradient(135deg, #8B5CFF 0%, #22E5FF 100%);
+  --grad-dark-card: linear-gradient(145deg, rgba(18, 26, 66, 0.75) 0%, rgba(11, 16, 48, 0.5) 100%);
+  --grad-hero-glow: radial-gradient(circle at 50% 30%, rgba(139, 92, 255, 0.18) 0%, rgba(34, 229, 255, 0.08) 50%, transparent 80%);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Fluid Typography Scale */
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);
+  --fs-sm: clamp(0.8125rem, 0.77rem + 0.3vw, 0.9375rem);
+  --fs-base: clamp(0.9375rem, 0.88rem + 0.35vw, 1.0625rem);
+  --fs-md: clamp(1.0625rem, 0.98rem + 0.45vw, 1.25rem);
+  --fs-lg: clamp(1.25rem, 1.15rem + 0.6vw, 1.5rem);
+  --fs-xl: clamp(1.5rem, 1.35rem + 0.9vw, 1.875rem);
+  --fs-2xl: clamp(1.875rem, 1.65rem + 1.3vw, 2.375rem);
+  --fs-3xl: clamp(2.375rem, 2.05rem + 1.8vw, 3.125rem);
+  --fs-hero: clamp(2.75rem, 2.3rem + 2.5vw, 4.25rem);
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+  --space-3xl: 7.5rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 550ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows */
+  --shadow-card: 0 16px 36px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--border-line);
+  --shadow-elevated: 0 24px 54px -16px rgba(0, 0, 0, 0.8), 0 0 30px rgba(34, 229, 255, 0.15);
+  
+  /* Layout */
+  --max-width: 1280px;
+  --nav-height: 80px;
+  --nav-height-scrolled: 64px;
+}
+
