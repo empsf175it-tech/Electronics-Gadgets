@@ -442,6 +442,13 @@
   margin-bottom: 2rem;
 }
 
+.overview-bottom-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 .widget-card {
   background: var(--bg-card);
   backdrop-filter: blur(14px);
@@ -971,8 +978,10 @@ input:checked + .slider:before {
     overflow: hidden;
   }
 
-  .charts-grid-2col {
+  .charts-grid-2col,
+  .overview-bottom-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .kpi-row {
     grid-template-columns: repeat(2, 1fr);
@@ -982,29 +991,115 @@ input:checked + .slider:before {
   }
 }
 
+@media (max-width: 640px) {
+  .dash-topbar {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .topbar-left {
+    gap: 0.65rem;
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Hide live telemetry pill in header on mobile to prevent squishing and overflow */
+  .dash-topbar .mock-live-pill {
+    display: none !important;
+  }
+
+  .view-breadcrumb {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .topbar-right {
+    flex-shrink: 0;
+  }
+
+  .warehouse-select {
+    max-width: 130px;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .mobile-dash-bottombar {
+    display: none !important;
+  }
+
+  .dash-content {
+    padding: 1.25rem 1rem !important;
+  }
+}
+
 @media (max-width: 576px) {
   .kpi-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Mobile 360 / Small Screen Layout Fixes */
+@media (max-width: 380px) {
   .dash-topbar {
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 0.65rem;
+    gap: 0.35rem;
+  }
+
+  .topbar-left {
+    gap: 0.45rem;
+  }
+
+  .dash-hamburger-btn {
+    width: 26px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .view-breadcrumb {
+    font-size: 0.7rem;
+    gap: 0.25rem;
+  }
+
+  .warehouse-select {
+    max-width: 110px;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .dash-content {
+    padding: 0.85rem 0.65rem !important;
+  }
+
+  .widget-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .widget-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .widget-title {
+    font-size: 0.875rem;
+  }
+
+  .gauge-svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .gauge-metric {
+    font-size: 1.85rem;
+    margin-top: -95px;
+    margin-bottom: 40px;
   }
 }
 
-/* Mobile Bottom Tab Bar */
+/* Mobile Bottom Tab Bar (Removed) */
 .mobile-dash-bottombar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: rgba(5, 8, 22, 0.95);
-  backdrop-filter: blur(16px);
-  border-top: 1px solid var(--border-line);
-  z-index: 1000;
-  justify-content: space-around;
-  align-items: center;
+  display: none !important;
 }
 
 /* Tablet view (641px - 1024px): Full content height, hamburger menu provides all navigation */
@@ -1017,13 +1112,13 @@ input:checked + .slider:before {
   }
 }
 
-/* Mobile view (<= 640px): show mobile bottombar */
+/* Mobile view (<= 640px): Bottom tab bar removed, hamburger menu provides navigation */
 @media (max-width: 640px) {
   .mobile-dash-bottombar {
-    display: flex;
+    display: none !important;
   }
   .dash-content {
-    padding-bottom: 80px;
+    padding-bottom: 2rem !important;
   }
 }
 

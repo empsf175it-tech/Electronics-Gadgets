@@ -941,6 +941,117 @@
   font-weight: 700;
 }
 
+/* Password Input Wrapper with Eye Toggle */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper .form-input {
+  width: 100%;
+  padding-right: 2.75rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--signal);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.password-toggle-btn:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  color: var(--signal);
+}
+
+.password-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none;
+}
+
+/* Social Authentication Options & Divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-block: 1.5rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-line);
+}
+
+.auth-divider span {
+  padding-inline: 0.85rem;
+}
+
+.auth-social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-auth-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(18, 26, 66, 0.45);
+  border: 1px solid var(--border-line);
+  color: var(--text-pure);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+
+.btn-auth-social:hover {
+  background: rgba(34, 229, 255, 0.12);
+  border-color: var(--signal);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 229, 255, 0.2);
+}
+
+.btn-auth-social svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 /* --------------------------------------------------------------------------
    BIG CALL-TO-ACTION BANNER
    -------------------------------------------------------------------------- */

@@ -1002,6 +1002,52 @@ header:has(.voltaris-nav),
   white-space: nowrap;
 }
 
+/* Pricing features list: straight 1-by-1 tick alignment while centered as a block in the card */
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  text-align: left;
+  line-height: 1.45;
+}
+
+.pricing-tick {
+  color: var(--signal);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1;
+  width: 16px;
+  min-width: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Pro / featured card neon volt tick marks */
+.pricing-grid .tilt-card[style*="border-color:var(--volt)"] .pricing-tick,
+.pricing-grid .tilt-card-wrapper:nth-child(2) .pricing-tick,
+.pricing-card-featured .pricing-tick {
+  color: var(--volt);
+}
+
 /* Push every CTA button to the bottom so buttons line up across cards */
 .pricing-grid .tilt-card-content > .btn:last-child {
   margin-top: auto;

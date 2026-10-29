@@ -123,7 +123,7 @@ export function login(email, password) {
 
 export function logout() {
   clearSession();
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
 }
 
 export function requireAuth() {
